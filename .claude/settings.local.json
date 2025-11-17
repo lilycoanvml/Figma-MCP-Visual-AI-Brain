@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(cat:*)",
+      "Bash(npm install)",
+      "Bash(npm run build:plugin:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run build:shared:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

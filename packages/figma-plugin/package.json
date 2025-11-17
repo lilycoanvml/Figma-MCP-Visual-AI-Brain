@@ -1,0 +1,19 @@
+{
+  "name": "@figma-visual-brain/plugin",
+  "version": "1.0.0",
+  "description": "Figma plugin for brand compliance analysis",
+  "scripts": {
+    "build": "tsc && npm run bundle",
+    "bundle": "cp src/ui.html dist/ && cp manifest.json dist/",
+    "watch": "tsc --watch",
+    "dev": "npm run build && npm run watch"
+  },
+  "dependencies": {
+    "@figma-visual-brain/shared": "^1.0.0"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.90.0",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  }
+}

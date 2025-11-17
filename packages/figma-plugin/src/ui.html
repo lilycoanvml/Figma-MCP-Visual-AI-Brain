@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Visual Brain - AI Brand Compliance</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13px;
+      background: #f5f5f5;
+      color: #333;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      background: #066FEF;
+      color: white;
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* Settings Panel */
+    .settings {
+      background: white;
+      padding: 12px 16px;
+      border-bottom: 1px solid #e0e0e0;
+      flex-shrink: 0;
+    }
+
+    .settings input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: monospace;
+    }
+
+    .settings label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #666;
+    }
+
+    .settings-toggle {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #066FEF;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* Main Content */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Selection Info */
+    .selection-info {
+      background: white;
+      padding: 12px 16px;
+      border-bottom: 1px solid #e0e0e0;
+      flex-shrink: 0;
+      font-size: 12px;
+    }
+
+    .selection-info strong {
+      color: #066FEF;
+    }
+
+    /* Chat Container */
+    .chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      overflow: hidden;
+    }
+
+    /* Messages */
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .message.user {
+      align-self: flex-end;
+      background: #066FEF;
+      color: white;
+    }
+
+    .message.assistant {
+      align-self: flex-start;
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .message.system {
+      align-self: center;
+      background: #FFF4E5;
+      color: #666;
+      font-size: 11px;
+      font-style: italic;
+      max-width: 95%;
+    }
+
+    .message.error {
+      align-self: center;
+      background: #FFE5E5;
+      color: #c00;
+      max-width: 95%;
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+      padding: 12px 16px;
+      background: #f9f9f9;
+      border-top: 1px solid #e0e0e0;
+      flex-shrink: 0;
+    }
+
+    .quick-actions-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .quick-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .quick-btn {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 8px;
+      font-size: 11px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .quick-btn:hover {
+      background: #f5f5f5;
+      border-color: #066FEF;
+    }
+
+    .quick-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Input Area */
+    .input-area {
+      padding: 12px 16px;
+      background: white;
+      border-top: 1px solid #e0e0e0;
+      flex-shrink: 0;
+      display: flex;
+      gap: 8px;
+    }
+
+    .input-area textarea {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 13px;
+      font-family: inherit;
+      resize: none;
+      min-height: 40px;
+      max-height: 80px;
+    }
+
+    .input-area button {
+      background: #066FEF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .input-area button:hover {
+      background: #0052CC;
+    }
+
+    .input-area button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Loading */
+    .loading {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #066FEF;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Scrollbar */
+    .messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .messages::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .messages::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 3px;
+    }
+
+    .messages::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    Visual Brain AI - RSF Brand Compliance
+  </div>
+
+  <div class="settings">
+    <label for="api-key">Claude API Key (Anthropic)</label>
+    <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off">
+    <div class="settings-toggle" id="toggle-settings">Hide</div>
+  </div>
+
+  <div class="main">
+    <div class="selection-info" id="selection-info">
+      Select elements in Figma to analyze
+    </div>
+
+    <div class="chat-container">
+      <div class="messages" id="messages">
+        <div class="message system">
+          👋 Hi! I'm your AI brand compliance assistant. Select any element in Figma and ask me about it. I'll analyze it against the RSF brand guidelines.
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <div class="quick-actions-title">Quick Actions</div>
+        <div class="quick-actions-grid">
+          <button class="quick-btn" data-action="analyze-full">🔍 Full Analysis</button>
+          <button class="quick-btn" data-action="check-colors">🎨 Check Colors</button>
+          <button class="quick-btn" data-action="check-typography">📝 Check Typography</button>
+          <button class="quick-btn" data-action="check-layout">📐 Check Layout</button>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <textarea id="user-input" placeholder="Ask about the selected design..." rows="1"></textarea>
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // RSF Brand Guidelines (embedded - summary for system prompt)
+    const BRAND_GUIDELINES_SUMMARY = {
+      colors: {
+        skyviewBlue: '#066FEF',
+        offBlack: '#0F0F0F',
+        white: '#FFFFFF'
+      },
+      typography: 'American Grotesk only',
+      spacing: '8px grid system'
+    };
+
+    // State
+    let conversationHistory = [];
+    let currentSelectionData = null;
+    let currentImage = null;
+    let apiKey = '';
+
+    // Initialize API key input handler
+    document.getElementById('api-key').addEventListener('change', (e) => {
+      apiKey = e.target.value;
+      // Save to Figma clientStorage via plugin code
+      parent.postMessage({ pluginMessage: { type: 'save-api-key', apiKey: apiKey } }, '*');
+    });
+
+    document.getElementById('toggle-settings').addEventListener('click', () => {
+      const settings = document.querySelector('.settings');
+      const toggle = document.getElementById('toggle-settings');
+      if (settings.style.display === 'none') {
+        settings.style.display = 'block';
+        toggle.textContent = 'Hide';
+      } else {
+        settings.style.display = 'none';
+        toggle.textContent = 'Show API Key';
+      }
+    });
+
+    // Handle messages from plugin code
+    window.onmessage = async (event) => {
+      const msg = event.data.pluginMessage;
+
+      if (msg.type === 'api-key-loaded') {
+        apiKey = msg.apiKey;
+        document.getElementById('api-key').value = apiKey;
+      }
+
+      if (msg.type === 'design-data-extracted') {
+        currentSelectionData = msg.data;
+        updateSelectionInfo();
+      }
+
+      if (msg.type === 'image-exported') {
+        currentImage = msg.data;
+      }
+    };
+
+    function updateSelectionInfo() {
+      const info = document.getElementById('selection-info');
+      if (!currentSelectionData || currentSelectionData.error) {
+        info.innerHTML = 'Select elements in Figma to analyze';
+        return;
+      }
+
+      const selection = currentSelectionData.selection;
+      info.innerHTML = `<strong>Selected:</strong> ${selection.map(s => s.name).join(', ')} (${selection.length} ${selection.length === 1 ? 'element' : 'elements'})`;
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById('user-input');
+      const message = input.value.trim();
+
+      if (!message) return;
+      if (!apiKey) {
+        addMessage('error', 'Please enter your Claude API key in the settings above');
+        return;
+      }
+
+      if (!currentSelectionData || currentSelectionData.error) {
+        addMessage('error', 'Please select elements in Figma first');
+        return;
+      }
+
+      // Add user message
+      addMessage('user', message);
+      input.value = '';
+
+      // Show loading
+      const loadingId = addMessage('assistant', '<div class="loading"></div>');
+
+      try {
+        const response = await analyzeWithAI(message);
+        removeMessage(loadingId);
+        addMessage('assistant', response);
+      } catch (error) {
+        removeMessage(loadingId);
+        addMessage('error', `Error: ${error.message}`);
+      }
+    }
+
+    async function quickAction(action) {
+      if (!apiKey) {
+        addMessage('error', 'Please enter your Claude API key');
+        return;
+      }
+
+      if (!currentSelectionData || currentSelectionData.error) {
+        addMessage('error', 'Please select elements in Figma first');
+        return;
+      }
+
+      let prompt = '';
+      switch (action) {
+        case 'analyze-full':
+          prompt = 'Perform a complete brand compliance analysis of the selected design against the RSF brand guidelines. Include colors, typography, layout, spacing, imagery style, and tone.';
+          break;
+        case 'check-colors':
+          prompt = 'Analyze the colors used in this design. Are they compliant with the RSF brand palette (Skyview Blue #066FEF, Off Black #0F0F0F, White #FFFFFF)?';
+          break;
+        case 'check-typography':
+          prompt = 'Check the typography. Is American Grotesk being used correctly? Are font sizes, weights, and hierarchy following RSF guidelines?';
+          break;
+        case 'check-layout':
+          prompt = 'Analyze the layout and spacing. Is the 8px grid system being followed? Are margins and padding appropriate?';
+          break;
+      }
+
+      document.getElementById('user-input').value = prompt;
+      sendMessage();
+    }
+
+    async function analyzeWithAI(userMessage) {
+      // Build message content
+      const messageContent = [
+        {
+          type: 'text',
+          text: `Design Data:\n${JSON.stringify(currentSelectionData, null, 2)}\n\nQuestion: ${userMessage}`
+        }
+      ];
+
+      // Add image if available (Claude format)
+      if (currentImage && !currentImage.error) {
+        // Extract base64 data (remove data:image/png;base64, prefix)
+        const base64Data = currentImage.base64.split(',')[1];
+        messageContent.push({
+          type: 'image',
+          source: {
+            type: 'base64',
+            media_type: 'image/png',
+            data: base64Data
+          }
+        });
+      }
+
+      // Build messages array for Claude
+      const messages = [
+        ...conversationHistory,
+        {
+          role: 'user',
+          content: messageContent
+        }
+      ];
+
+      const systemPrompt = `You are a brand compliance expert for Ford's "Ready Set Ford" (RSF) campaign. You analyze Figma designs against the RSF brand guidelines.
+
+RSF Brand Guidelines Summary:
+- Colors: Skyview Blue (#066FEF), Off Black (#0F0F0F), White (#FFFFFF)
+- Typography: American Grotesk family only (Compressed Black for headlines, Bold for nameplates/CTAs, Regular for body)
+- Spacing: 8px grid system
+- Lockups: Must follow specific sizing rules (65% width for horizontal, 75% for vertical stacked)
+- Photography: Customer-centric, action-oriented, high-impact imagery
+- Tone: Inspiring, determined, impassioned (not aggro or braggy)
+
+You have access to the full design data including colors, typography, layout, components, and images. Provide specific, actionable feedback with references to the brand guidelines.
+
+Be conversational but professional. Give a compliance score out of 100 when doing full analyses.`;
+
+      // Make API call through local proxy server (to bypass CORS)
+      const response = await fetch('http://localhost:3000/api/claude', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          apiKey: apiKey,
+          messages: messages,
+          systemPrompt: systemPrompt
+        })
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error?.message || error.error || 'API request failed');
+      }
+
+      const data = await response.json();
+      const assistantMessage = data.content[0].text;
+
+      // Update conversation history
+      conversationHistory.push({
+        role: 'user',
+        content: userMessage
+      });
+      conversationHistory.push({
+        role: 'assistant',
+        content: assistantMessage
+      });
+
+      // Keep only last 10 exchanges (20 messages)
+      if (conversationHistory.length > 20) {
+        conversationHistory = conversationHistory.slice(-20);
+      }
+
+      return assistantMessage;
+    }
+
+    function addMessage(type, content) {
+      const messagesDiv = document.getElementById('messages');
+      const messageId = `msg-${Date.now()}`;
+
+      const messageEl = document.createElement('div');
+      messageEl.className = `message ${type}`;
+      messageEl.id = messageId;
+      messageEl.innerHTML = content;
+
+      messagesDiv.appendChild(messageEl);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+      return messageId;
+    }
+
+    function removeMessage(id) {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+
+    // Handle Enter key
+    document.getElementById('user-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // Attach event listeners to buttons after variables are initialized
+    document.getElementById('send-btn').addEventListener('click', sendMessage);
+
+    document.querySelectorAll('.quick-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const action = btn.getAttribute('data-action');
+        if (action) quickAction(action);
+      });
+    });
+  </script>
+</body>
+</html>

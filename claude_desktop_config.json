@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "figma-visual-brain": {
+      "command": "node",
+      "args": [
+        "/Users/lily.coan/Library/CloudStorage/OneDrive-WPPCloud/Desktop/Fall 2025/Figma MCP Visual Brain/packages/mcp-server/build/index.js"
+      ],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "your_figma_token_here"
+      }
+    }
+  }
+}
