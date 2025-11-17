@@ -261,6 +261,107 @@
     .hidden {
       display: none !important;
     }
+
+    /* Compliance Report Sections */
+    .compliance-score {
+      background: #E8F4FD;
+      border-left: 4px solid #066FEF;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #066FEF;
+    }
+
+    .compliance-section {
+      margin: 12px 0;
+      padding: 12px;
+      border-radius: 6px;
+      border-left: 4px solid;
+    }
+
+    .compliance-section.compliant {
+      background: #E8F5E9;
+      border-left-color: #4CAF50;
+    }
+
+    .compliance-section.warnings {
+      background: #FFF9E6;
+      border-left-color: #FFC107;
+    }
+
+    .compliance-section.critical {
+      background: #FFEBEE;
+      border-left-color: #F44336;
+    }
+
+    .compliance-section.suggestions {
+      background: #F3E5F5;
+      border-left-color: #9C27B0;
+    }
+
+    .compliance-section-title {
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .compliance-section.compliant .compliance-section-title {
+      color: #2E7D32;
+    }
+
+    .compliance-section.warnings .compliance-section-title {
+      color: #F57C00;
+    }
+
+    .compliance-section.critical .compliance-section-title {
+      color: #C62828;
+    }
+
+    .compliance-section.suggestions .compliance-section-title {
+      color: #6A1B9A;
+    }
+
+    .compliance-section ul {
+      margin: 0;
+      padding-left: 20px;
+      list-style: none;
+    }
+
+    .compliance-section ul li {
+      margin: 6px 0;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    .compliance-section ul li:before {
+      content: "•";
+      position: absolute;
+      left: -15px;
+      font-weight: bold;
+    }
+
+    .compliance-section.compliant ul li:before {
+      color: #4CAF50;
+    }
+
+    .compliance-section.warnings ul li:before {
+      color: #FFC107;
+    }
+
+    .compliance-section.critical ul li:before {
+      color: #F44336;
+    }
+
+    .compliance-section.suggestions ul li:before {
+      color: #9C27B0;
+    }
   </style>
 </head>
 <body>
@@ -477,7 +578,32 @@ RSF Brand Guidelines Summary:
 
 You have access to the full design data including colors, typography, layout, components, and images. Provide specific, actionable feedback with references to the brand guidelines.
 
-Be conversational but professional. Give a compliance score out of 100 when doing full analyses.`;
+IMPORTANT: Format your response using this structure for analysis requests:
+
+[SCORE: X/100]
+Overall compliance score (only for full analyses)
+
+[COMPLIANT]
+• Bullet point of what's done well
+• Another compliant element
+• More positive findings
+
+[WARNINGS]
+• Bullet point of minor issues
+• Another warning item
+• More warnings if needed
+
+[CRITICAL]
+• Bullet point of serious violations
+• Another critical issue
+• More critical items if needed
+
+[SUGGESTIONS]
+• Actionable suggestion for improvement
+• Another helpful recommendation
+• More ideas to enhance compliance
+
+For conversational questions (not analyses), respond naturally without this structure.`;
 
       // Make API call through local proxy server (to bypass CORS)
       const response = await fetch('http://localhost:3000/api/claude', {
@@ -518,6 +644,83 @@ Be conversational but professional. Give a compliance score out of 100 when doin
       return assistantMessage;
     }
 
+    function formatComplianceReport(content) {
+      // Check if this is a structured compliance report
+      if (!content.includes('[COMPLIANT]') && !content.includes('[WARNINGS]') && !content.includes('[CRITICAL]')) {
+        return content; // Return unformatted if not a compliance report
+      }
+
+      let formatted = '';
+
+      // Extract and format score
+      const scoreMatch = content.match(/\[SCORE:\s*(\d+)\/100\]/);
+      if (scoreMatch) {
+        formatted += `<div class="compliance-score">📊 Compliance Score: ${scoreMatch[1]}/100</div>`;
+      }
+
+      // Extract and format COMPLIANT section
+      const compliantMatch = content.match(/\[COMPLIANT\]([\s\S]*?)(?=\[WARNINGS\]|\[CRITICAL\]|\[SUGGESTIONS\]|$)/);
+      if (compliantMatch) {
+        const items = compliantMatch[1].trim().split('\n').filter(line => line.trim().startsWith('•'));
+        if (items.length > 0) {
+          formatted += '<div class="compliance-section compliant">';
+          formatted += '<div class="compliance-section-title">✓ Compliant Elements</div>';
+          formatted += '<ul>';
+          items.forEach(item => {
+            formatted += `<li>${item.replace('•', '').trim()}</li>`;
+          });
+          formatted += '</ul></div>';
+        }
+      }
+
+      // Extract and format WARNINGS section
+      const warningsMatch = content.match(/\[WARNINGS\]([\s\S]*?)(?=\[COMPLIANT\]|\[CRITICAL\]|\[SUGGESTIONS\]|$)/);
+      if (warningsMatch) {
+        const items = warningsMatch[1].trim().split('\n').filter(line => line.trim().startsWith('•'));
+        if (items.length > 0) {
+          formatted += '<div class="compliance-section warnings">';
+          formatted += '<div class="compliance-section-title">⚠ Warnings</div>';
+          formatted += '<ul>';
+          items.forEach(item => {
+            formatted += `<li>${item.replace('•', '').trim()}</li>`;
+          });
+          formatted += '</ul></div>';
+        }
+      }
+
+      // Extract and format CRITICAL section
+      const criticalMatch = content.match(/\[CRITICAL\]([\s\S]*?)(?=\[COMPLIANT\]|\[WARNINGS\]|\[SUGGESTIONS\]|$)/);
+      if (criticalMatch) {
+        const items = criticalMatch[1].trim().split('\n').filter(line => line.trim().startsWith('•'));
+        if (items.length > 0) {
+          formatted += '<div class="compliance-section critical">';
+          formatted += '<div class="compliance-section-title">✖ Critical Issues</div>';
+          formatted += '<ul>';
+          items.forEach(item => {
+            formatted += `<li>${item.replace('•', '').trim()}</li>`;
+          });
+          formatted += '</ul></div>';
+        }
+      }
+
+      // Extract and format SUGGESTIONS section
+      const suggestionsMatch = content.match(/\[SUGGESTIONS\]([\s\S]*?)(?=\[COMPLIANT\]|\[WARNINGS\]|\[CRITICAL\]|$)/);
+      if (suggestionsMatch) {
+        const items = suggestionsMatch[1].trim().split('\n').filter(line => line.trim().startsWith('•'));
+        if (items.length > 0) {
+          formatted += '<div class="compliance-section suggestions">';
+          formatted += '<div class="compliance-section-title">💡 Suggestions</div>';
+          formatted += '<ul>';
+          items.forEach(item => {
+            formatted += `<li>${item.replace('•', '').trim()}</li>`;
+          });
+          formatted += '</ul></div>';
+        }
+      }
+
+      return formatted || content;
+    }
+
     function addMessage(type, content) {
       const messagesDiv = document.getElementById('messages');
       const messageId = `msg-${Date.now()}`;
@@ -525,7 +728,13 @@ Be conversational but professional. Give a compliance score out of 100 when doin
       const messageEl = document.createElement('div');
       messageEl.className = `message ${type}`;
       messageEl.id = messageId;
-      messageEl.innerHTML = content;
+
+      // Format compliance reports for assistant messages
+      if (type === 'assistant') {
+        messageEl.innerHTML = formatComplianceReport(content);
+      } else {
+        messageEl.innerHTML = content;
+      }
 
       messagesDiv.appendChild(messageEl);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
