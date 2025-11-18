@@ -1,8 +1,11 @@
 {
   "name": "@figma-visual-brain/proxy-server",
   "version": "1.0.0",
-  "description": "Local proxy server for Figma plugin to bypass CORS",
+  "description": "Proxy server for Figma plugin to bypass CORS",
   "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
