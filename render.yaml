@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: figma-visual-brain-proxy
+    runtime: node
+    region: oregon # Change to your preferred region (oregon, frankfurt, singapore, ohio)
+    plan: free
+    rootDir: packages/proxy-server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
