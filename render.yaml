@@ -4,9 +4,9 @@ services:
     runtime: node
     region: oregon # Change to your preferred region (oregon, frankfurt, singapore, ohio)
     plan: free
-    buildCommand: npm install --workspace=packages/proxy-server
-    startCommand: npm start --workspace=packages/proxy-server
-    healthCheckPath: /
+    rootDir: packages/proxy-server
+    buildCommand: npm install
+    startCommand: node server.js
     envVars:
       - key: NODE_ENV
         value: production
