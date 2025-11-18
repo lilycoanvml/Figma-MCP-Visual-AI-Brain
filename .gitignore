@@ -12,6 +12,7 @@ dist/
 
 # Keep important JS files
 !packages/*/src/**/*.js
+!packages/proxy-server/server.js
 
 # Environment
 .env
