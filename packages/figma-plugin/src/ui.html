@@ -372,6 +372,10 @@
   <div class="settings">
     <label for="api-key">Claude API Key (Anthropic)</label>
     <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off">
+
+    <label for="proxy-url" style="margin-top: 12px;">Proxy Server URL</label>
+    <input type="text" id="proxy-url" placeholder="https://your-app.railway.app" autocomplete="off">
+
     <div class="settings-toggle" id="toggle-settings">Hide</div>
   </div>
 
@@ -421,6 +425,14 @@
     let currentSelectionData = null;
     let currentImage = null;
     let apiKey = '';
+    let proxyUrl = localStorage.getItem('proxy_url') || 'http://localhost:3000';
+
+    // Initialize proxy URL input
+    document.getElementById('proxy-url').value = proxyUrl;
+    document.getElementById('proxy-url').addEventListener('change', (e) => {
+      proxyUrl = e.target.value.trim();
+      localStorage.setItem('proxy_url', proxyUrl);
+    });
 
     // Initialize API key input handler
     document.getElementById('api-key').addEventListener('change', (e) => {
@@ -605,8 +617,8 @@ Overall compliance score (only for full analyses)
 
 For conversational questions (not analyses), respond naturally without this structure.`;
 
-      // Make API call through local proxy server (to bypass CORS)
-      const response = await fetch('http://localhost:3000/api/claude', {
+      // Make API call through proxy server (to bypass CORS)
+      const response = await fetch(`${proxyUrl}/api/claude`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
