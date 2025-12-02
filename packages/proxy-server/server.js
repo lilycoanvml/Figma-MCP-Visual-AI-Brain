@@ -89,12 +89,33 @@ app.post('/api/claude', async (req, res) => {
       return res.status(response.status).json(data);
     }
 
+    // Log the full response for debugging
+    console.log('Gemini API response:', JSON.stringify(data, null, 2));
+
+    // Extract text from Gemini response
+    let responseText = '';
+    if (data.candidates && data.candidates.length > 0) {
+      const candidate = data.candidates[0];
+      if (candidate.content && candidate.content.parts && candidate.content.parts.length > 0) {
+        responseText = candidate.content.parts[0].text || '';
+      }
+    }
+
+    // If no text found, return error
+    if (!responseText) {
+      console.error('No text in Gemini response:', JSON.stringify(data, null, 2));
+      return res.status(500).json({
+        error: 'Empty response from Gemini API',
+        debugInfo: data
+      });
+    }
+
     // Convert Gemini response to Claude-compatible format
     const claudeCompatibleResponse = {
       content: [
         {
           type: 'text',
-          text: data.candidates?.[0]?.content?.parts?.[0]?.text || ''
+          text: responseText
         }
       ],
       role: 'assistant'
