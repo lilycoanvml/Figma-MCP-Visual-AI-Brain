@@ -370,11 +370,11 @@
   </div>
 
   <div class="settings">
-    <label for="api-key">Claude API Key (Anthropic)</label>
-    <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off">
+    <label for="api-key">Google Gemini API Key</label>
+    <input type="password" id="api-key" placeholder="AIzaSy..." autocomplete="off">
 
     <label for="proxy-url" style="margin-top: 12px;">Proxy Server URL</label>
-    <input type="text" id="proxy-url" placeholder="https://your-app.railway.app" autocomplete="off">
+    <input type="text" id="proxy-url" placeholder="https://figma-visual-brain-proxy.onrender.com" autocomplete="off">
 
     <div class="settings-toggle" id="toggle-settings">Hide</div>
   </div>
@@ -425,13 +425,14 @@
     let currentSelectionData = null;
     let currentImage = null;
     let apiKey = '';
-    let proxyUrl = localStorage.getItem('proxy_url') || 'http://localhost:3000';
+    let proxyUrl = 'https://figma-visual-brain-proxy.onrender.com';
 
     // Initialize proxy URL input
     document.getElementById('proxy-url').value = proxyUrl;
     document.getElementById('proxy-url').addEventListener('change', (e) => {
       proxyUrl = e.target.value.trim();
-      localStorage.setItem('proxy_url', proxyUrl);
+      // Save to Figma clientStorage via plugin code
+      parent.postMessage({ pluginMessage: { type: 'save-proxy-url', proxyUrl: proxyUrl } }, '*');
     });
 
     // Initialize API key input handler
@@ -462,6 +463,11 @@
         document.getElementById('api-key').value = apiKey;
       }
 
+      if (msg.type === 'proxy-url-loaded') {
+        proxyUrl = msg.proxyUrl;
+        document.getElementById('proxy-url').value = proxyUrl;
+      }
+
       if (msg.type === 'design-data-extracted') {
         currentSelectionData = msg.data;
         updateSelectionInfo();
@@ -489,7 +495,7 @@
 
       if (!message) return;
       if (!apiKey) {
-        addMessage('error', 'Please enter your Claude API key in the settings above');
+        addMessage('error', 'Please enter your Gemini API key in the settings above');
         return;
       }
 
@@ -507,9 +513,15 @@
 
       try {
         const response = await analyzeWithAI(message);
+        console.log('AI Response:', response);
         removeMessage(loadingId);
-        addMessage('assistant', response);
+        if (response && response.trim()) {
+          addMessage('assistant', response);
+        } else {
+          addMessage('error', 'Received empty response from AI');
+        }
       } catch (error) {
+        console.error('AI Error:', error);
         removeMessage(loadingId);
         addMessage('error', `Error: ${error.message}`);
       }
@@ -517,7 +529,7 @@
 
     async function quickAction(action) {
       if (!apiKey) {
-        addMessage('error', 'Please enter your Claude API key');
+        addMessage('error', 'Please enter your Gemini API key');
         return;
       }
 
@@ -543,7 +555,7 @@
       }
 
       document.getElementById('user-input').value = prompt;
-      sendMessage();
+      await sendMessage();
     }
 
     async function analyzeWithAI(userMessage) {
@@ -555,7 +567,7 @@
         }
       ];
 
-      // Add image if available (Claude format)
+      // Add image if available
       if (currentImage && !currentImage.error) {
         // Extract base64 data (remove data:image/png;base64, prefix)
         const base64Data = currentImage.base64.split(',')[1];
@@ -569,7 +581,7 @@
         });
       }
 
-      // Build messages array for Claude
+      // Build messages array
       const messages = [
         ...conversationHistory,
         {
@@ -657,6 +669,12 @@ For conversational questions (not analyses), respond naturally without this stru
     }
 
     function formatComplianceReport(content) {
+      // Safety check
+      if (!content || typeof content !== 'string') {
+        console.error('Invalid content:', content);
+        return 'Error: No response received';
+      }
+
       // Check if this is a structured compliance report
       if (!content.includes('[COMPLIANT]') && !content.includes('[WARNINGS]') && !content.includes('[CRITICAL]')) {
         return content; // Return unformatted if not a compliance report

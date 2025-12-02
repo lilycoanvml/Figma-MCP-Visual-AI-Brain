@@ -38,9 +38,15 @@ figma.on('selectionchange', async () => {
 // Initial extraction on plugin load
 (async () => {
   // Load saved API key
-  const savedApiKey = await figma.clientStorage.getAsync('claude_api_key');
+  const savedApiKey = await figma.clientStorage.getAsync('gemini_api_key');
   if (savedApiKey) {
     figma.ui.postMessage({ type: 'api-key-loaded', apiKey: savedApiKey });
+  }
+
+  // Load saved proxy URL
+  const savedProxyUrl = await figma.clientStorage.getAsync('proxy_url');
+  if (savedProxyUrl) {
+    figma.ui.postMessage({ type: 'proxy-url-loaded', proxyUrl: savedProxyUrl });
   }
 
   const designData = await extractFullDesignData();
@@ -53,7 +59,11 @@ figma.on('selectionchange', async () => {
 // Handle messages from UI
 figma.ui.onmessage = async (msg) => {
   if (msg.type === 'save-api-key') {
-    await figma.clientStorage.setAsync('claude_api_key', msg.apiKey);
+    await figma.clientStorage.setAsync('gemini_api_key', msg.apiKey);
+  }
+
+  if (msg.type === 'save-proxy-url') {
+    await figma.clientStorage.setAsync('proxy_url', msg.proxyUrl);
   }
 
   if (msg.type === 'analyze-colors') {
