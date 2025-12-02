@@ -77,7 +77,7 @@ app.post('/api/claude', async (req, res) => {
         contents: geminiContents,
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 4096,
+          maxOutputTokens: 8192,
         }
       })
     });
@@ -94,20 +94,37 @@ app.post('/api/claude', async (req, res) => {
 
     // Extract text from Gemini response
     let responseText = '';
+    let finishReason = '';
     if (data.candidates && data.candidates.length > 0) {
       const candidate = data.candidates[0];
+      finishReason = candidate.finishReason || '';
       if (candidate.content && candidate.content.parts && candidate.content.parts.length > 0) {
         responseText = candidate.content.parts[0].text || '';
       }
     }
 
-    // If no text found, return error
+    // If no text found, return error with specific message
     if (!responseText) {
       console.error('No text in Gemini response:', JSON.stringify(data, null, 2));
+
+      // Check if it was cut off due to token limit
+      if (finishReason === 'MAX_TOKENS') {
+        return res.status(500).json({
+          error: 'Response was cut off due to length. Try asking a more specific question or analyzing a simpler design.',
+          finishReason: finishReason
+        });
+      }
+
       return res.status(500).json({
         error: 'Empty response from Gemini API',
+        finishReason: finishReason,
         debugInfo: data
       });
+    }
+
+    // Add warning if response was truncated
+    if (finishReason === 'MAX_TOKENS') {
+      responseText += '\n\n⚠️ Note: This response may be incomplete due to length limits.';
     }
 
     // Convert Gemini response to Claude-compatible format
