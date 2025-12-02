@@ -691,13 +691,16 @@ For conversational questions (not analyses), respond naturally without this stru
       // Extract and format COMPLIANT section
       const compliantMatch = content.match(/\[COMPLIANT\]([\s\S]*?)(?=\[WARNINGS\]|\[CRITICAL\]|\[SUGGESTIONS\]|$)/);
       if (compliantMatch) {
-        const items = compliantMatch[1].trim().split('\n').filter(line => line.trim().startsWith('•'));
+        const items = compliantMatch[1].trim().split('\n').filter(line => {
+          const trimmed = line.trim();
+          return trimmed.startsWith('•') || trimmed.startsWith('*');
+        });
         if (items.length > 0) {
           formatted += '<div class="compliance-section compliant">';
           formatted += '<div class="compliance-section-title">✓ Compliant Elements</div>';
           formatted += '<ul>';
           items.forEach(item => {
-            formatted += `<li>${item.replace('•', '').trim()}</li>`;
+            formatted += `<li>${item.replace(/^[•*]\s*/, '').trim()}</li>`;
           });
           formatted += '</ul></div>';
         }
@@ -706,13 +709,16 @@ For conversational questions (not analyses), respond naturally without this stru
       // Extract and format WARNINGS section
       const warningsMatch = content.match(/\[WARNINGS\]([\s\S]*?)(?=\[COMPLIANT\]|\[CRITICAL\]|\[SUGGESTIONS\]|$)/);
       if (warningsMatch) {
-        const items = warningsMatch[1].trim().split('\n').filter(line => line.trim().startsWith('•'));
+        const items = warningsMatch[1].trim().split('\n').filter(line => {
+          const trimmed = line.trim();
+          return trimmed.startsWith('•') || trimmed.startsWith('*');
+        });
         if (items.length > 0) {
           formatted += '<div class="compliance-section warnings">';
           formatted += '<div class="compliance-section-title">⚠ Warnings</div>';
           formatted += '<ul>';
           items.forEach(item => {
-            formatted += `<li>${item.replace('•', '').trim()}</li>`;
+            formatted += `<li>${item.replace(/^[•*]\s*/, '').trim()}</li>`;
           });
           formatted += '</ul></div>';
         }
@@ -721,13 +727,16 @@ For conversational questions (not analyses), respond naturally without this stru
       // Extract and format CRITICAL section
       const criticalMatch = content.match(/\[CRITICAL\]([\s\S]*?)(?=\[COMPLIANT\]|\[WARNINGS\]|\[SUGGESTIONS\]|$)/);
       if (criticalMatch) {
-        const items = criticalMatch[1].trim().split('\n').filter(line => line.trim().startsWith('•'));
+        const items = criticalMatch[1].trim().split('\n').filter(line => {
+          const trimmed = line.trim();
+          return trimmed.startsWith('•') || trimmed.startsWith('*');
+        });
         if (items.length > 0) {
           formatted += '<div class="compliance-section critical">';
           formatted += '<div class="compliance-section-title">✖ Critical Issues</div>';
           formatted += '<ul>';
           items.forEach(item => {
-            formatted += `<li>${item.replace('•', '').trim()}</li>`;
+            formatted += `<li>${item.replace(/^[•*]\s*/, '').trim()}</li>`;
           });
           formatted += '</ul></div>';
         }
@@ -736,13 +745,16 @@ For conversational questions (not analyses), respond naturally without this stru
       // Extract and format SUGGESTIONS section
       const suggestionsMatch = content.match(/\[SUGGESTIONS\]([\s\S]*?)(?=\[COMPLIANT\]|\[WARNINGS\]|\[CRITICAL\]|$)/);
       if (suggestionsMatch) {
-        const items = suggestionsMatch[1].trim().split('\n').filter(line => line.trim().startsWith('•'));
+        const items = suggestionsMatch[1].trim().split('\n').filter(line => {
+          const trimmed = line.trim();
+          return trimmed.startsWith('•') || trimmed.startsWith('*');
+        });
         if (items.length > 0) {
           formatted += '<div class="compliance-section suggestions">';
           formatted += '<div class="compliance-section-title">💡 Suggestions</div>';
           formatted += '<ul>';
           items.forEach(item => {
-            formatted += `<li>${item.replace('•', '').trim()}</li>`;
+            formatted += `<li>${item.replace(/^[•*]\s*/, '').trim()}</li>`;
           });
           formatted += '</ul></div>';
         }
