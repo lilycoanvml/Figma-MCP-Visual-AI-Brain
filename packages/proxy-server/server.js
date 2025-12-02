@@ -12,7 +12,7 @@ app.use(cors({
 
 app.use(express.json({ limit: '50mb' }));
 
-// Proxy endpoint for Claude API
+// Proxy endpoint for Gemini API
 app.post('/api/claude', async (req, res) => {
   try {
     const { apiKey, messages, systemPrompt } = req.body;
@@ -21,29 +21,86 @@ app.post('/api/claude', async (req, res) => {
       return res.status(400).json({ error: 'API key required' });
     }
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    // Convert Claude-style messages to Gemini format
+    const geminiContents = [];
+
+    // Add system prompt as first user message if provided
+    if (systemPrompt) {
+      geminiContents.push({
+        role: 'user',
+        parts: [{ text: `System Instructions: ${systemPrompt}` }]
+      });
+      geminiContents.push({
+        role: 'model',
+        parts: [{ text: 'Understood. I will follow these instructions.' }]
+      });
+    }
+
+    // Convert messages from Claude format to Gemini format
+    for (const msg of messages) {
+      const parts = [];
+
+      if (Array.isArray(msg.content)) {
+        // Handle multipart content (text + images)
+        for (const item of msg.content) {
+          if (item.type === 'text') {
+            parts.push({ text: item.text });
+          } else if (item.type === 'image' && item.source) {
+            parts.push({
+              inline_data: {
+                mime_type: item.source.media_type || 'image/png',
+                data: item.source.data
+              }
+            });
+          }
+        }
+      } else if (typeof msg.content === 'string') {
+        parts.push({ text: msg.content });
+      }
+
+      geminiContents.push({
+        role: msg.role === 'assistant' ? 'model' : 'user',
+        parts: parts
+      });
+    }
+
+    // Use gemini-1.5-flash for multimodal support (supports images)
+    const model = 'gemini-1.5-flash';
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'claude-3-haiku-20240307',
-        max_tokens: 4096,
-        system: systemPrompt,
-        messages: messages
+        contents: geminiContents,
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 4096,
+        }
       })
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('Anthropic API error:', JSON.stringify(data, null, 2));
+      console.error('Gemini API error:', JSON.stringify(data, null, 2));
       return res.status(response.status).json(data);
     }
 
-    res.json(data);
+    // Convert Gemini response to Claude-compatible format
+    const claudeCompatibleResponse = {
+      content: [
+        {
+          type: 'text',
+          text: data.candidates?.[0]?.content?.parts?.[0]?.text || ''
+        }
+      ],
+      role: 'assistant'
+    };
+
+    res.json(claudeCompatibleResponse);
   } catch (error) {
     console.error('Proxy error:', error);
     res.status(500).json({ error: error.message });
@@ -52,5 +109,5 @@ app.post('/api/claude', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`\n🚀 Figma Plugin Proxy Server running on http://localhost:${PORT}`);
-  console.log(`   Forwarding requests to Anthropic API\n`);
+  console.log(`   Forwarding requests to Google Gemini API\n`);
 });
