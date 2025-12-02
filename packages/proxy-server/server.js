@@ -64,8 +64,8 @@ app.post('/api/claude', async (req, res) => {
       });
     }
 
-    // Use gemini-1.5-flash-latest for multimodal support (supports images)
-    const model = 'gemini-1.5-flash-latest';
+    // Use gemini-1.5-pro for multimodal support (supports images)
+    const model = 'gemini-1.5-pro';
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     const response = await fetch(apiUrl, {
