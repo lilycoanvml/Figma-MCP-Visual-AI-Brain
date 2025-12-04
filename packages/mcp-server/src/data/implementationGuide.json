@@ -1,0 +1,468 @@
+{
+  "document_metadata": {
+    "title": "Ready Set Ford – Implementation Guide",
+    "version": "R01",
+    "date": "November 2025",
+    "confidential": true,
+    "pages": 59
+  },
+
+  "overview": {
+    "pages": [2,3],
+    "purpose": "Clarify adoption of Ready Set Ford campaign and provide implementation rules across channels and sub-brands.",
+    "context": "All RSF materials must follow Playbook 1.0.",
+    "contents": [
+      "What is Ready Set Ford?",
+      "Is/Is Not",
+      "Brand Strategy Framework",
+      "Brand Identity System",
+      "Decision Tree",
+      "Key Elements Overview",
+      "Minimum Viable Product",
+      "Channel Applications",
+      "Who Should Use RSF"
+    ]
+  },
+
+  "what_is_ready_set_ford": {
+    "pages": [5,6],
+    "definition": "A global brand campaign expressing Ford’s highest form of capability and passion.",
+    "campaign_components": [
+      "Strategic Point of View",
+      "Tone of Voice",
+      "Imagery Style",
+      "Visual Design System",
+      "Tagline"
+    ],
+    "tagline": "You’re more capable than you think",
+    "replaces": [
+      "Built Ford Proud®",
+      "Bring on Tomorrow",
+      "Ready for More",
+      "Regional taglines"
+    ],
+    "rsf_purpose": [
+      "Central global brand campaign.",
+      "Guides advertising and related touchpoints.",
+      "Built from brand strategy + identity.",
+      "Signals modernization of Ford marketing globally."
+    ]
+  },
+
+  "rsf_is_vs_is_not": {
+    "pages": [6,8],
+    "rsf_is": [
+      "A global brand campaign platform.",
+      "An interdependent system of POV, TOV, imagery, design, and tagline.",
+      "For advertising aligned with RSF strategy.",
+      "Manifestation of the Global Brand Strategy."
+    ],
+    "rsf_is_not": [
+      "Not the Global Brand Strategy.",
+      "Not the Global Brand Identity System.",
+      "Not used for all Ford communications.",
+      "Not for permanent branded assets.",
+      "Not for internal materials."
+    ],
+    "relationship": {
+      "inputs": ["Brand Strategy", "Brand Identity System"],
+      "role": "RSF expresses strategy; it does not replace identity."
+    }
+  },
+
+  "brand_strategy_framework_context": {
+    "pages": [7,8],
+    "root_principles": ["Capability","Passion","Community","Trust"],
+    "strategy_influences": [
+      "Vehicle Design","Product Development","Global Communications",
+      "Dealer Engagement","Human Resources","Integrated Services",
+      "Philanthropy","Global Brand Marketing"
+    ]
+  },
+
+  "application_decision_tree": {
+    "pages": [9],
+    "questions": [
+      "Is my work external-facing?",
+      "Is it aligned to RSF strategy (You're more capable than you think)?",
+      "Can it deliver TOV, imagery, design + tagline?"
+    ],
+    "outcomes": {
+      "if_any_no": "Use Brand Identity System or consult Brand Office.",
+      "if_all_yes": "Use RSF campaign system."
+    }
+  },
+
+  "minimum_viable_product": {
+    "pages": [10,11],
+    "ideal_state": [
+      "Strategic Point of View",
+      "Tone of Voice",
+      "Imagery Style",
+      "Color Palette",
+      "Typography",
+      "Layout Principles",
+      "Tagline Lockup"
+    ],
+    "mvp": [
+      "Strategic POV",
+      "Tone (voice or image)",
+      "Visual elements (color, type, layout)",
+      "Tagline lockup in the set"
+    ]
+  },
+
+  "key_elements": {
+    "pages": [12,13],
+    "strategy_description": "Ford enables human capability; RSF expresses this globally.",
+    "required_visibility": "Any piece using RSF must express this ethos."
+  },
+
+  "brand_assets": {
+    "pages": [14, 20],
+    "ford_oval": {
+      "rules": [
+        "Primary corporate trademark.",
+        "Use Ford Blue unless otherwise restricted.",
+        "Required in multi-frame assets when RSF lockup used.",
+        "Not required in single-frame static RSF assets."
+      ]
+    },
+    "rsf_tagline_lockup": {
+      "rules": [
+        "Not a replacement for Ford Oval.",
+        "In multi-frame assets, Ford Oval must also appear.",
+        "Single-frame static assets can use lockup alone.",
+        "Follow Rule of One."
+      ]
+    },
+    "bft_shield": {
+      "usage": [
+        "Used for truck-specific RSF content.",
+        "Tier 1 <15s and static: RSF graphic only.",
+        "Tier 1 >15s: RSF end + BFT shield (preferred slam).",
+        "Dealership interior: BFT encouraged."
+      ]
+    },
+    "rules_of_one_and_two": {
+      "rule_of_one": "Single-frame assets may ONLY include ONE trademark or lockup.",
+      "rule_of_two": "Multi-frame assets may include a MAX of two brand assets: RSF lockup + Ford Oval (or sub-brand logo)."
+    },
+    "partnership_usage": {
+      "must": "Use Ford Oval as brand representation.",
+      "must_not": "Do not use RSF lockup as primary partnership brand."
+    }
+  },
+
+  "color": {
+    "pages": [21, 24],
+    "palette": {
+      "OffBlack": {"hex":"#0F0F0F","rgb":"15,15,15","cmyk":"100,61,32,96","pantone":"Black 6C"},
+      "Skyview": {"hex":"#066FEF","rgb":"6,111,239","cmyk":"84,45,0,0","pantone":"2172C"},
+      "White": {"hex":"#FFFFFF","rgb":"255,255,255","cmyk":"0,0,0,0"},
+      "FordBlue": {"hex":"#00095B","rgb":"0,9,91","cmyk":"100,85,0,30","paint":"FMC001"},
+      "LightGray": {"hex":"#F0F0F0","rgb":"240,240,240","cmyk":"10,7,5,0","pantone":"Cool Gray 1C"}
+    },
+    "rules": {
+      "skyview_usage": [
+        "Use sparingly for impact.",
+        "Avoid full floods in entire experiences.",
+        "Always balanced with Off Black and white."
+      ],
+      "ford_blue_rules": [
+        "Must appear in logos and end frames.",
+        "Do not mix blue floods with Skyview text.",
+        "Never let background colors show through the Oval."
+      ],
+      "color_pairings_wcag": {
+        "headline_pairings": {
+          "skyview_on_white":"AA/AAA depending on size",
+          "skyview_on_offblack":"AA for large text"
+        },
+        "secondary_copy_pairings": {
+          "offblack_on_white":"AAA",
+          "white_on_offblack":"AAA"
+        },
+        "disallowed": ["Low contrast Skyview mixes", "Skyview behind Ford Blue Oval"]
+      }
+    }
+  },
+
+  "typography": {
+    "pages": [25, 27],
+    "typefaces": {
+      "campaign_font": "American Grotesk",
+      "brand_font": "Ford F-1"
+    },
+    "headline_rules": {
+      "font":"American Grotesk Compressed Black",
+      "case":"ALL CAPS",
+      "max_words": 8,
+      "leading":"80%",
+      "no_punctuation_single_sentence": true,
+      "alignment":"center (preferred)"
+    },
+    "subhead_rules": {
+      "font":"American Grotesk Regular/Bold",
+      "leading":"110%",
+      "case":"Upper/Lower",
+      "alignment":"left"
+    },
+    "body_copy": {
+      "font":"American Grotesk Regular",
+      "leading":"130%",
+      "alignment":"left"
+    },
+    "disclaimers": {
+      "font":"American Grotesk Regular",
+      "leading":"110%",
+      "alignment":"center"
+    },
+    "nameplates": {
+      "font":"American Grotesk Bold",
+      "case":"ALL CAPS",
+      "leading":"110%",
+      "alignment":"left"
+    },
+    "ford_f1_rules": [
+      "Ford F-1 remains primary for long-term branded components.",
+      "American Grotesk allowed only for campaign-specific placements.",
+      "Do not convert entire templates to American Grotesk."
+    ]
+  },
+
+  "layout_principles": {
+    "pages":[28],
+    "rules": [
+      "Big Words: maximize headline width/height.",
+      "Even Divided Spaces: max 4 quadrants.",
+      "Tight Margins: 2%–10%; gutters = margins.",
+      "Stick to the Poles: align to corners.",
+      "Tagline Scale: follow playbook proportions; TM may hang in margin."
+    ]
+  },
+
+  "imagery_style": {
+    "pages":[29],
+    "pillars": [
+      "Customer Centric",
+      "Action Oriented",
+      "High Impact + Embracing Extremes"
+    ],
+    "intent": "Vehicles and people equally heroed; imagery enables human capability."
+  },
+
+  "tone_of_voice": {
+    "pages":[30],
+    "description": "Empowers human capability; inspiring, determined, impassioned.",
+    "examples": [
+      "Doers Gonna Do",
+      "Difficult is Worth Doing",
+      "Impatience is Also a Virtue",
+      "Make It ’Til You Make It"
+    ]
+  },
+
+  "channels": {
+    "website": {
+      "pages":[32],
+      "rules":[
+        "RSF used in hero banners + marquee billboards.",
+        "F-1 font used for non-RSF components.",
+        "RSF imagery in hero areas only."
+      ]
+    },
+
+    "components": {
+      "pages":[33],
+      "text_modes": {
+        "live":"For multi-market, dynamic copy.",
+        "flattened":"For art-directed type; must include alt text."
+      }
+    },
+
+    "supers_art_cards": {
+      "pages":[34],
+      "rules": {
+        "primary_info":"American Grotesk Bold ALL CAPS",
+        "secondary":"American Grotesk Regular mixed case",
+        "headline":"American Grotesk Compressed Black",
+        "disclaimers":"Regular 20–22px"
+      }
+    },
+
+    "offer_cards": {
+      "pages":[35],
+      "rules":[
+        "Ford Blue Oval must be present.",
+        "Offers use American Grotesk Bold.",
+        "Nameplates in Bold ALL CAPS."
+      ]
+    },
+
+    "social": {
+      "pages":[36],
+      "rules": [
+        "Content divided in halves or thirds.",
+        "Rule of Two: Ford Oval on 2nd last frame, RSF lockup on final frame.",
+        "Disclaimers min 8px."
+      ]
+    },
+
+    "email": {
+      "pages":[37],
+      "rules":[
+        "Both Ford Oval + RSF lockup acceptable (scrolling experience).",
+        "RSF hero banner uses imagery + tone of voice.",
+        "FDS templates used for non-RSF elements."
+      ]
+    },
+
+    "direct_mail": {
+      "pages":[38],
+      "rules":[
+        "Content evenly divided.",
+        "Ford Oval appears on back, RSF tagline on front per Rule of Two.",
+        "Headlines maximize margins."
+      ]
+    },
+
+    "online_advertising": {
+      "pages":[39],
+      "rules":[
+        "Even division of space.",
+        "Headline <8 words in RSF TOV.",
+        "Dealer name in Bold title case.",
+        "ADA-compliant color pairings.",
+        "Ford Oval on second frame."
+      ]
+    },
+
+    "point_of_purchase": {
+      "pages":[40],
+      "rules":[
+        "Single-frame = Rule of One: one trademark only.",
+        "Headlines max vertical margins.",
+        "Nameplates in Bold ALL CAPS."
+      ]
+    },
+
+    "experiential": {
+      "pages":[41],
+      "rules":[
+        "Ford Oval must be present in experience (not necessarily same plane).",
+        "Text maxes vertical margins.",
+        "Nameplate sticks to poles."
+      ]
+    },
+
+    "merchandise": {
+      "pages":[42],
+      "rules":[
+        "Merch cannot carry all RSF components.",
+        "Should be given/sold in context of full RSF experience.",
+        "RSF logo front, Ford Blue Oval back/sleeve."
+      ]
+    }
+  },
+
+  "who_should_use_rsf": {
+    "pages": [44, 45],
+    "philosophy": "RSF is all-in or not at all — partial adoption dilutes impact.",
+    "requirements": [
+      "External facing.",
+      "Aligned to RSF strategy.",
+      "Can deliver TOV + imagery + design + tagline."
+    ]
+  },
+
+  "corporate_brand_rules": {
+    "pages":[47],
+    "rules":[
+      "Permanent assets remain in Brand Identity System.",
+      "Logos cannot adopt campaign identities."
+    ]
+  },
+
+  "sub_brands": {
+    "ford_credit": {
+      "pages":[48],
+      "rules":[ "Sign Here concept aligned → full RSF adoption allowed." ]
+    },
+    "ford_service": {
+      "pages":[49],
+      "rules":[
+        "If messaging not aligned → use Brand Identity System.",
+        "Do not skin non-RSF messages with RSF visuals."
+      ]
+    },
+    "ford_building_together": {
+      "pages":[50],
+      "rules":[
+        "Aligned with RSF → uses full RSF identity.",
+        "Rule of One prevents lockup in single-frame."
+      ]
+    }
+  },
+
+  "retail": {
+    "point_of_sale": {
+      "pages":[51],
+      "rules":[
+        "Dealerships use full RSF identity system.",
+        "Focus on lifestyle expressions."
+      ]
+    },
+    "arm_shopper": {
+      "pages":[52,53],
+      "rules":[
+        "Must adopt all RSF elements.",
+        "Amplifies campaign deeper in decision journey.",
+        "Convert old ARM materials to RSF."
+      ]
+    },
+    "regional_fdaf": {
+      "pages":[54],
+      "rules":[
+        "Evaluate case by case.",
+        "Never adopt RSF partially.",
+        "Must align to strategy → otherwise stay in Brand Identity System."
+      ]
+    }
+  },
+
+  "ford_integrated_services": {
+    "pages":[55,56],
+    "rules":[
+      "Use existing digital design system.",
+      "RSF is NOT the design system.",
+      "How-to/owner materials do not align → do not use RSF."
+    ]
+  },
+
+  "ford_internal": {
+    "pages":[57],
+    "rules":[
+      "Internal docs remain Brand Identity System.",
+      "Internal templates never use RSF."
+    ]
+  },
+
+  "portfolio_brands": {
+    "ford_pro": {
+      "pages":[58],
+      "rules":[
+        "Does not implement RSF except Q4 2025 low-funnel Super Duty/Transit ads.",
+        "Follow Ford Pro style guide."
+      ]
+    },
+    "ford_racing": {
+      "pages":[59],
+      "rules":[
+        "Does not implement RSF.",
+        "Follow Ford Racing Playbook."
+      ]
+    }
+  }
+}
+

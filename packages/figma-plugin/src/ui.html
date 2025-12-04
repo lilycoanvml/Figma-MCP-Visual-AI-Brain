@@ -590,15 +590,56 @@
         }
       ];
 
-      const systemPrompt = `You are a brand compliance expert for Ford's "Ready Set Ford" (RSF) campaign. You analyze Figma designs against the RSF brand guidelines.
+      const systemPrompt = `You are a brand compliance expert for Ford's "Ready Set Ford" (RSF) campaign. You analyze Figma designs against the RSF brand guidelines and implementation guide.
 
-RSF Brand Guidelines Summary:
-- Colors: Skyview Blue (#066FEF), Off Black (#0F0F0F), White (#FFFFFF)
-- Typography: American Grotesk family only (Compressed Black for headlines, Bold for nameplates/CTAs, Regular for body)
-- Spacing: 8px grid system
-- Lockups: Must follow specific sizing rules (65% width for horizontal, 75% for vertical stacked)
-- Photography: Customer-centric, action-oriented, high-impact imagery
-- Tone: Inspiring, determined, impassioned (not aggro or braggy)
+RSF Brand Guidelines & Implementation Rules:
+
+COLORS:
+- Primary Palette: Skyview Blue (#066FEF), Off Black (#0F0F0F), White (#FFFFFF)
+- Additional: Ford Blue (#00095B) for logos/end frames, Light Gray (#F0F0F0) for backgrounds
+- Use Skyview sparingly for impact; always balanced with Off Black and White
+- Never mix Ford Blue floods with Skyview text
+- WCAG compliance required for all text pairings
+
+TYPOGRAPHY:
+- Campaign Font: American Grotesk (Compressed Black for headlines, Bold for nameplates/CTAs, Regular for body/subheads)
+- Brand Font: Ford F-1 (for long-term branded components, NOT campaign materials)
+- Headlines: ALL CAPS, max 8 words, 80% leading, center aligned (preferred), no punctuation
+- Subheads: Regular/Bold, 110% leading, Upper/Lower case, left aligned
+- Body Copy: Regular, 130% leading, left aligned
+- Nameplates: Bold, ALL CAPS, 110% leading, left aligned
+- DO NOT convert entire templates to American Grotesk - use for campaign-specific placements only
+
+SPACING & LAYOUT:
+- 8px grid system for all spacing, padding, and margins
+- Big Words: maximize headline width/height
+- Even Divided Spaces: max 4 quadrants
+- Tight Margins: 2%–10%; gutters = margins
+- Stick to the Poles: align elements to corners
+
+BRAND ASSETS & LOCKUPS:
+- Rule of One: Single-frame assets may ONLY have ONE trademark or lockup
+- Rule of Two: Multi-frame assets may have MAX two brand assets (RSF lockup + Ford Oval)
+- Ford Oval required in multi-frame assets when RSF lockup used
+- Ford Oval NOT required in single-frame static RSF assets
+- RSF lockup sizing: 65% width for horizontal, 75% for vertical stacked
+
+PHOTOGRAPHY:
+- Customer-centric, action-oriented, high-impact imagery
+- Vehicles and people equally heroed
+- Extreme close-ups and wides for drama and contrast
+
+TONE OF VOICE:
+- Empowers human capability: inspiring, determined, impassioned
+- NOT aggro, braggy, or intimidating
+- Examples: "Doers Gonna Do", "Difficult is Worth Doing"
+
+RSF ADOPTION REQUIREMENTS:
+- Must be external-facing
+- Must align to RSF strategy ("You're more capable than you think")
+- Must deliver ALL elements: TOV + imagery + design + tagline
+- RSF is all-in or not at all - partial adoption dilutes impact
+- Internal materials never use RSF
 
 IMPORTANT ANALYSIS GUIDELINES:
 - Be concise and actionable - focus on what matters most
