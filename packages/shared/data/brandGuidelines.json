@@ -1,553 +1,518 @@
 {
-  "document": {
-    "title": "RSF .5 PLAYBOOK",
-    "version": "R1",
-    "date": "March 2025",
-    "status": "WIP",
-    "organizations": ["The Ford Motor Company", "Wieden+Kennedy"]
-  },
-  
-  "brandOverview": {
-    "tagline": "READY SET FORD",
-    "acronym": "RSF",
-    "description": "RSF represents a significant evolution, but not a revolution. The foundational brand qualities remain: Confident, Reliable, Authentic.",
-    "goals": [
-      "Modernize",
-      "Increase Relevance With New Audiences",
-      "Differentiate From Competitors"
-    ],
-    "positioningShift": {
-      "from": {
-        "direction": "Looks inward",
-        "role": "Brand = a source of pride"
-      },
-      "to": {
-        "direction": "Looks forward",
-        "role": "Brand = a catalyst for making things happen"
-      }
-    }
-  },
-
-  "lockups": {
-    "overview": "The lockup is a key element of the campaign's visual identity and must be used consistently to maintain clarity and impact.",
-    "types": {
-      "horizontal": {
-        "name": "Horizontal Lockup",
-        "usage": "Best used in cinematic, widescreen applications",
-        "specifications": {
-          "sizing": "Never take up less than approximately 65% of a divided layout",
-          "fullBleed": "Ideally sized to no less than ⅓ of the layout width for wider, landscape-sized assets, and ½ of the layout for assets with a ratio closer to 1:1 or 4:5",
-          "centerAlignment": "When horizontally and vertically centered as a backdrop or title card, the horizontal lockup is ideally equal to approximately 65% of the layout width"
-        }
-      },
-      "vertical": {
-        "name": "Vertical Lockup (Stacked)",
-        "usage": "Particularly useful in applications where horizontal space is limited, such as social media, digital placements, and narrow layouts",
-        "specifications": {
-          "sizing": "Ideally 75% of the layout width when horizontally and vertically centered as a backdrop or title card"
-        }
-      }
-    },
-    "endcardLockups": {
-      "name": "RSF Endcard Lockup Specifications",
-      "rule": "Use white lockup on top of imagery. No alternate color lockups.",
-      "formats": {
-        "16:9": "Horizontal lockup at ~65% of width",
-        "9:16": "Stacked lockup at ~75% width",
-        "1:1": "Stacked lockup at ~50% width",
-        "4:5": "Stacked lockup at ~50% width"
-      },
-      "donts": [
-        "No non-white lockups over images",
-        "No tilted or angled lockups",
-        "No custom sizes outside of spec"
-      ]
-    },
-    "photography": {
-      "guidelines": [
-        "Use negative space and ensure the lockup is positioned over an area of the image that does not obscure important or necessary details",
-        "High contrast between the lockup and the photo is essential for readability",
-        "Avoid placing the lockup over key elements of the image",
-        "Avoid using a Skyview fill when overlaying photos without sufficient contrast"
+  "metadata": {
+    "title": "Ready Set Ford PLAYBOOK",
+    "version": "PLAYBOOK V1",
+    "releaseDate": "August 2025",
+    "confidentiality": {
+      "isConfidential": true,
+      "notes": [
+        "Subject to legal review",
+        "Confidential information for internal use only",
+        "For creative and ideation purposes",
+        "Claims require Legal + PI approval"
       ],
-      "colorOptions": [
-        {
-          "name": "Skyview on White",
-          "usage": "Standard for neutral applications"
-        },
-        {
-          "name": "Off-Black on Skyview",
-          "usage": "More emotive and intrepid, ideal for applications looking to impart a sense of adventure"
-        },
-        {
-          "name": "Skyview on Off-Black",
-          "usage": "Most intense; used sparingly for moments of high-octane precision and thrill"
-        },
-        {
-          "name": "White over imagery",
-          "usage": "For endcards only"
-        }
-      ]
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:1]{index=1}"
     },
-    "brandPartnerships": {
-      "guidelines": "Logos should be at least 5x from the dividing line, with X equal to the height of the bar of the 'T' in the Vertical Lockup",
-      "dividingLine": "Should be approximately ½ X in thickness",
-      "spacing": "The spacing available for partner logos should not exceed that of 2x the Vertical Lockup"
-    },
-    "builtFordTough": {
-      "description": "The BFT Shield is synonymous with the power and fortitude of Ford Trucks, and is occasionally applied to truck-centric layouts as a graphic element",
-      "usage": "For static layouts, use the flat vector BFT Shield as it better marries with the world of RSF than its metallic, textured counterpart"
-    },
-    "animation": {
-      "guideline": "When animating a title card, a simple approach is often best",
-      "frames": "Whenever possible, the Lockup should appear over picture and animate on in three distinct frames—one for each element of the Lockup itself"
-    },
-    "donts": {
-      "horizontal": [
-        "Don't apply any effects to the lockup, including but not limited to - drop shadows, glows, transparency, bevels, or gradients",
-        "Don't alter the line heights of the lockup",
-        "Don't adjust the kerning of the lockup",
-        "Don't alter the size or proportions of the logo within the lockup",
-        "Don't use title case for the lockup",
-        "Don't change the angle of the lockup, or place the lockup on its side facing down"
-      ],
-      "vertical": [
-        "Don't apply any effects to the lockup",
-        "Don't alter the line breaks of the lockup",
-        "Don't adjust the line spacing or kerning of the lockup",
-        "Don't alter the size or proportions of the logo within the lockup",
-        "Don't use title case for the lockup",
-        "Don't change the angle of the lockup, or place the lockup on its side facing down"
-      ]
-    }
+    "sourceFile": "Ready+Set+Ford_PLAYBOOK+1.0_FINAL_August+2025 1.pdf",
+    "sourceFileCitation": ":contentReference[oaicite:2]{index=2}"
   },
 
-  "typography": {
-    "overview": "Typography gives shape, weight and power to our voice. Meet American Grotesk - Ready Set Ford's family of typefaces.",
-    "primaryFont": {
-      "name": "American Grotesk",
-      "description": "A modern reprisal of a Franklin Gothic, American Grotesk is intrepid, audacious, exciting and flexible - all while still feeling familiar"
-    },
-    "weights": {
-      "compressedBlack": {
-        "name": "Compressed Black",
-        "usage": "Used for all headlines"
-      },
-      "bold": {
-        "name": "Bold",
-        "usage": "Used for all Nameplates and CTAs as well as within Body Copy and Subheads for additional emphasis, if needed"
-      },
-      "regular": {
-        "name": "Regular",
-        "usage": "Used for all subheads and body copy"
-      }
-    },
-    "headlines": {
-      "tracking": "0",
-      "leading": "Metrics",
-      "kerning": "Set to 'Metrics', Having said this, typesetting can be subjective; designers are encouraged to manually kern letteform pairs should it feel warranted for aesthetic reasons",
-      "lineBreaks": "Occasionally, tight leading can potentially cause letterforms to collide - particularly with diacritics (glyphs appearing below or above a letterform indicating a difference in pronunciation), punctuation such as commas, and characters with descenders (in our case, the letter 'Q')",
-      "diacritics": "If a line can be broken in such a way as to avoid a collision, this is ideal, but understandably not possible all of the time. If this is the case, leading can be altered to accommodate the special character"
-      }
-    },
-    "nameplatesBodyCopySubheads": {
-      "nameplates": {
-        "tracking": "0",
-        "kerning": "Metrics",
-        "leading": "110%",
-        "description": "Nameplates are always set in bold and are always all-caps. This helps them stand apart from other elements. They employ 0 tracking, metrics kerning and a leading of approximately 110% of the font size"
-      },
-      "subheads": {
-        "tracking": "0",
-        "kerning": "Metrics", 
-        "leading": "110%",
-        "description": "Subheads are set in Regular, employ 0 tracking, metrics kerning and a leading of approximately 110% of the font size"
-      },
-      "bodyCopy": {
-        "tracking": "0",
-        "kerning": "Metrics",
-        "leading": "130%",
-        "description": "Body Copy is set in Regular and employs 0 tracking, metrics kerning and a leading of approximately 130% of the font size"
-      },
-      "ctas": {
-        "tracking": "0",
-        "kerning": "Metrics",
-        "description": "CTAs are set in Bold with 0 tracking and metrics kerning"
-      }
-    },
-    "hierarchy": {
-      "description": "We should try and maintain a relatively fixed value in the relationship of type sizes on any given layout",
-      "largeMediumFormat": {
-        "name": "Large Format / Out of Home",
-        "subhead": "Approximately 14%-17% the point size of the headline",
-        "nameplate": "Approximately 16% of the headline"
-      },
-      "mediumFormat": {
-        "name": "Medium Format",
-        "description": "For more intimate settings, aim for supporting elements to be 23% - 28% the point size of the headline"
-      },
-      "smallFormatMultipleSizes": {
-        "name": "Small format / Multiple Sizes",
-        "description": "In some places, there might be the need to combine multiple sizes (e.g. Headlines, Subheads and body copy) onto one layout - think web applications or publication materials. For this, we recommend there be a 50% difference in each element point size"
-      }
-    },
-    "alignment": {
-      "headlines": "Where possible, we aim to center-align Headlines to make a clear and confident statement. However, if a layout includes multiple supporting elements (e.g. Subheads, CTAs, etc) that might result in a less-pleasing shape if center-aligned, the headline can be left-aligned to accommodate",
-      "subheadsBodyCopy": "All Subheads and Body copy should aim to be left-aligned with a 'right rag' - meaning the lines of text are not fully-justified, or extending directly to the end of the bounding box",
-      "nameplates": "Nameplates should generally be left-aligned if broken into two lines. While right-alignment is mostly discouraged, a Nameplate can be right-aligned to create a more pleasing rag (or shape) if the layout necessitates",
-      "titleCards": "All title cards should aim to be center-aligned"
-    },
-    "donts": [
-      "Don't deviate from type settings (tracking, kerning, leading) unless you have to",
-      "Don't deviate from the use cases stipulated for each font",
-      "Don't use a font outside of the Ready Set Ford family",
-      "Don't distort type in any way"
-    ],
+  "contents": [
+    { "section": "Introduction", "pageStart": 5, "pageEnd": 6 },
+    { "section": "Lockups", "pageStart": 31, "pageEnd": 37 },
+    { "section": "Type / Typography", "pageStart": 38, "pageEnd": 47 },
+    { "section": "Color", "pageStart": 48, "pageEnd": 53 },
+    { "section": "Layout", "pageStart": 54, "pageEnd": 73 },
+    { "section": "Graphic Elements", "pageStart": 73, "pageEnd": 84 },
+    { "section": "Photography", "pageStart": 85, "pageEnd": 106 },
+    { "section": "Tone of Voice", "pageStart": 107, "pageEnd": 117 },
+    { "section": "Tagline Modularity", "pageStart": 118, "pageEnd": 125 }
+  ],
 
-  "color": {
-    "overview": "Our color palette is a simple and contemporary nod to where we've been with an eye toward the future. It's flexible, dynamic and emotionally resonant in ways that can be turned up and down at a designer's discretion",
-    "palette": {
-      "skyviewBlue": {
-        "name": "Skyview Blue",
-        "hex": "#066FEF",
-        "rgb": "6, 111, 239",
-        "cmyk": "84, 45, 0, 0",
-        "pantone": "2172 C",
-        "description": "Our familiar nod to Ford's timeless blue"
-      },
-      "offBlack": {
-        "name": "Off Black",
-        "hex": "#0F0F0F",
-        "rgb": "15, 15, 15",
-        "cmyk": "100, 61, 32, 96",
-        "pantone": "Pantone Black 6C",
-        "description": "A dynamic and high energy supporting palette"
-      },
-      "white": {
-        "name": "White",
-        "hex": "#FFFFFF",
-        "rgb": "255, 255, 255",
-        "cmyk": "0, 0, 0, 0",
-        "pantone": null
-      }
+  "sections": {
+    "introduction": {
+      "pages": [5, 6],
+      "summary": "Explains Ready Set Ford as a strategic shift in brand advertising with changes to photography, color, typography and more. Emphasizes legal review requirement and that guidelines are to be referenced for consistent advertising execution.",
+      "assertions": [
+        "We’re embarking on a new chapter for the Ford brand. To serve customers on their best days.",
+        "Ready Set Ford signals a strategic shift for the Ford brand and carries a fresh design approach for advertising.",
+        "As consistency is crucial, these guidelines should always be referenced when creating advertising to support the new brand strategy."
+      ],
+      "notes": "Claims on these pages are not finalized and require Legal + PI review. This slide is meant to guide creative ideation — not to be leveraged directly.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:3]{index=3}"
     },
-    "combinations": {
-      "utility": {
-        "name": "Utility to Emotive Scale",
-        "skyviewOnWhite": {
-          "description": "Our hardest-working and standard color combination. For use in any neutral, sturdy or nimble application"
-        },
-        "offBlackOnSkyview": {
-          "description": "A little more emotive and intrepid, and ideal for applications looking to impart a sense of adventure"
-        },
-        "skyviewOnOffBlack": {
-          "description": "This is us at our most intense; used sparingly for moments of high-octane precision and thrill"
+
+    "globalBrandStrategy": {
+      "pages": [7, 8, 11, 12, 13],
+      "brandEssence": "A unifying shorthand to inform decision-making across vehicles, services, and experiences.",
+      "lifestylesServed": {
+        "overview": "Customer Lifestyles the brand serves better than anyone else; lens to add value to customers' lives.",
+        "lifestyles": {
+          "Build": {
+            "description": "Working hard and serving others, making a tangible impact on their businesses and communities.",
+            "subcategories": {
+              "Personal": "Balancing it all, motivated by dependability.",
+              "Business": "Delivering great results, motivated by productivity."
+            }
+          },
+          "Thrill": {
+            "description": "Pushing their limits; rebellious, playful provoke; exudes cool and strong performance credibility.",
+            "subcategories": {
+              "On-Road": "Crave mastery and control, speed as expression of freedom.",
+              "Off-Road": "Conquer unpredictable landscapes; self-reliant; capability over comfort."
+            }
+          },
+          "Adventure": {
+            "description": "Diving into the unknown; resilient; inclusive; wants versatile, rugged vehicles.",
+            "subcategories": {
+              "Wild": "Often solo, capability over comfort.",
+              "Journey": "Socially-centered adventure, comfort with capability."
+            }
+          }
         }
-      }
+      },
+      "pointOfView": {
+        "headline": "YOU’RE MORE CAPABLE THAN YOU THINK",
+        "notes": "POV manifests in externally facing global brand advertising campaign."
+      },
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:4]{index=4}"
     },
-    "typeColorCompliance": {
-      "wcagCompliance": {
+
+    "lockups": {
+      "pages": [31, 32, 33, 34, 35, 36, 37],
+      "overview": "Lockup is a key element of the campaign visual identity and must be used consistently. Both vertical and horizontal lockups defined with placement, spacing and restrictions.",
+      "types": {
+        "horizontal": {
+          "usage": "Best used in cinematic, widescreen applications.",
+          "sizeRecommendations": [
+            "Should never take less than roughly 65% of a divided layout (accounting for margins).",
+            "For full-bleed, ideally 1/3 of layout width for wider landscape assets and 1/2 width for closer to 1:1 or 4:5 ratio, except when other elements require adjustment.",
+            "When centered as backdrop/title card, approx 65% of layout width."
+          ],
+          "donts": [
+            "Don't apply any effects (drop shadows, glows, transparency, bevels, gradients). Exceptions: drop shadows permitted for ADA compliance.",
+            "Don't alter size or proportions of the logo within the Lockup.",
+            "Don't add outlines.",
+            "Don't alter line heights or line breaks.",
+            "Don't use title case (must be all-caps).",
+            "Don't stretch the Lockup; maintain original aspect ratio.",
+            "Don't adjust kerning.",
+            "Don't change the angle of the Lockup or place on its side facing down.",
+            "Don't use colors outside approved palette."
+          ]
+        },
+        "vertical": {
+          "usage": "Useful where horizontal space is limited (social, narrow layouts).",
+          "donts": [
+            "Same set of prohibitions as Horizontal Lockup (no effects, no distortion, no outlines, maintain kerning/line breaks, no color outside palette, etc.)"
+          ]
+        },
+        "placementOnPhotography": {
+          "guidance": [
+            "Position over negative/empty area that does not obscure essential details.",
+            "Avoid placing over vehicles' key elements or busy regions of the photo.",
+            "Ensure high contrast for readability; Skyview can be used as alternative to White if photo contrast allows.",
+            "Avoid placing Lockup where it interacts awkwardly with the photo; do not occlude subjects."
+          ],
+          "examplesNote": "Showcases Skyview on White, Off-Black on Skyview, Skyview on Off-Black, White over imagery as recommended combos.",
+          "source": "file",
+          "file_citation": ":contentReference[oaicite:5]{index=5}"
+        },
+        "stackedLockup": {
+          "usage": "Best to make big impact in tighter spaces; sizing recommendation 50-75% of layout width when centered for backdrops or title cards."
+        }
+      },
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:6]{index=6}"
+    },
+
+    "typography": {
+      "pages": [38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
+      "overview": "Primary type family: American Grotesk — modern reprisal of Franklin Gothic; intrepid, audacious, flexible while familiar.",
+      "weights": {
+        "compressedBlack": "Used for all Headlines (Compressed Black).",
+        "bold": "Used for Nameplates, CTAs, emphasis in body and subheads; Bold Italic for selective emphasis.",
+        "regular": "Used for Subheads, Body Copy, Legal Lines; Regular Italic selectively for emphasis."
+      },
+      "typesettingRules": {
         "headlines": {
-          "skyviewOnWhite": "WCAG AA-compliant",
-          "offBlackOnSkyview": "WCAG AA-compliant",
-          "skyviewOnOffBlack": "WCAG AA-compliant"
+          "case": "All caps",
+          "tracking": "0",
+          "kerning": "Metrics",
+          "leading": "Approximately 78% - 80% of font size (tight leading).",
+          "notes": "Headlines should be tightly leaded/tracked to form a solid sturdy shape. Manually kern when aesthetic reasons warrant."
         },
-        "secondary": {
-          "skyviewOnWhite": "WCAG AA-compliant in 'Normal Text' category",
-          "whiteOnSkyview": "WCAG AA-compliant in 'Normal Text' category",
-          "whiteOnOffBlack": "WCAG AA-compliant in 'Normal Text' category"
+        "nameplates": {
+          "fontWeight": "Bold",
+          "case": "All caps",
+          "tracking": "0",
+          "kerning": "Metrics",
+          "leading": "Approximately 110% of font size."
         },
-        "standard": {
-          "skyviewOnWhite": "For non-web or app-based assets",
-          "offBlackOnSkyview": "For non-web or app-based assets",
-          "skyviewOnOffBlack": "For non-web or app-based assets"
-        }
-      },
-      "exceptions": [
-        {
-          "combination": "White on Skyview",
-          "condition": "In select instances, Off-Black on Skyview may feel too heavy for a particular setting, in which case White can be used as a fill"
+        "subheads": {
+          "fontWeight": "Regular",
+          "tracking": "0",
+          "kerning": "Metrics",
+          "leading": "Approximately 110% of font size."
         },
-        {
-          "combination": "Black on White",
-          "condition": "Black and white is an acceptable pairing when the use of color is prohibited"
-        }
-      ]
-    },
-    "donts": [
-      "Don't use colors outside of the Ready Set Ford palette",
-      "Don't pick a Division fill color that clashes with the photo it abuts",
-      "Don't fill a division with more than one color",
-      "Don't use color combinations outside of those suggested unless required to"
-    ]
-  },
-
-  "layout": {
-    "overview": "The Ready Set Ford design system aims to make every moment impactful, no matter the shape. Here are some principles that guide how we show up",
-    "principles": {
-      "activatedSpace": {
-        "name": "Activated Space",
-        "description": "Big words, tight margins and divided layouts allow us to fill — or activate — all available space in dynamic ways, thereby making the most of any format while remaining clear, logical, and unmistakably Ford"
-      },
-      "contrast": {
-        "name": "Contrast",
-        "description": "Photographic scale changes sit side-by-side with vibrant color pairings, bringing weight and personality to every layout"
-      },
-      "emotionalDepth": {
-        "name": "Emotional Depth",
-        "description": "Each element of the toolkit is engineered to deliver a range of energy, utility and emotional depth"
-      }
-    },
-    "multiImageSystem": {
-      "description": "Each layout may use multiple images, but they must maintain balance in scale, clarity, and color relationships"
-    }
-  },
-
-  "spacing": {
-    "system": {
-      "name": "8px Grid System",
-      "baseUnit": 8,
-      "allowedMultiples": [0.5, 1, 1.5, 2, 3, 4, 6, 8],
-      "description": "Use an 8px base grid for spacing, padding, and layout consistency"
-    },
-    "margins": {
-      "description": "Margins give our layouts balance and focus. They're also an essential building block to determine the space between each component within",
-      "calculation": "Margins are applied by calculating a percentage of the width of an asset. This allows for flexibility, as there's no one-size-fits-all margin setting",
-      "average": "About 2-10% for most layouts",
-      "bestPractices": "Wider spaces tend to benefit from smaller percentages, while narrower spaces tend to benefit from higher percentages. To maintain a consistent feel across all communications, try not to go below 1% or above 15%"
-    },
-    "lockupPadding": {
-      "name": "Endcard Lockup Padding",
-      "baseUnit": 8,
-      "allowedMultiples": [1, 2, 3],
-      "description": "Padding around end card lockups should snap to the 8px grid to maintain visual balance across formats"
-    }
-  },
-
-  "components": {
-    "gutters": {
-      "description": "Gutters are the spacing elements applied to layouts. Think of them as padding - keeping type and graphic elements locked to them from being too flush with a change in imagery or color field",
-      "application": "Gutters should always be equal to the width of document margins. Each division should have gutters on all sides, to which all graphic elements (Headlines, Subheads, CTAs) align"
-    },
-    "buttons": {
-      "minHeight": 40,
-      "borderRadius": 8,
-      "paddingX": 16,
-      "paddingY": 12,
-      "description": "Buttons should feel sturdy and clickable, with consistent padding and rounded-corner style",
-      "preferred": "Outlined Buttons",
-      "secondary": "Filled (use only if necessary)",
-      "colors": [
-        "Skyview on White",
-        "Off-Black on Skyview",
-        "Skyview on Off-Black",
-        "White over imagery"
-      ]
-    },
-    "ctas": {
-      "description": "CTAs are calls to action. They are used in digital applications to drive traffic to a specific place or to perform an action",
-      "placement": "Where possible, the placement should aim to activate space — that is, occupy a pole (or corner) not already being used by another element. This creates a sense of balance and fullness, while carving out spacing for each",
-      "positioning": "Can appear beneath a Headline and Subhead, given that there isn't sufficient room on the bottommost poles of the layout to accommodate it"
-    },
-    "bftShield": {
-      "description": "The BFT Shield is synonymous with the power and fortitude of Ford Trucks",
-      "usage": "Treated much like any other supporting graphic element — aligned to a pole in a way that gives it a sense of space and purpose from surrounding elements. Because it contains the Ford Script, it's ideal to keep it 'separate' from the RSF lockup as much as possible so as to minimize the feel of competing branding",
-      "sizing": "Ideal sizing for the BFT Shield within layouts: ideally 2-3x the size of document margins",
-      "placement": "In instances where the BFT Shield is treated as a supporting graphic element — aligned to a pole in a way that gives it a sense of space and purpose from surrounding elements"
-    }
-  },
-
-  "headlines": {
-    "marginToMargin": "Whenever possible, headlines will extend to fill the length of the document or division margins (the gutters we talked about on the previous page,) either top-to-bottom or left-to-right. This will occasionally need to vary to accommodate other supporting elements within the layout",
-    "succinct": "The ideal headline is short and punchy, between three to eight words"
-  },
-
-  "nameplates": {
-    "stickToThePoles": "Like all supportive design elements (Headlines, Subheads, CTAs,) the Nameplate should be locked to the pole — that's to say the corners: upper-left, lower-left, upper-right or lower-right — of a division section if a divided layout is being used or the document corners if a full bleed image is being used. This placement helps the elements feel anchored to and supportive of the surrounding layout",
-    "stayClose": "While the Nameplate placement is up to you, try to ensure that it stays within reasonable proximity to vehicle it describes: either by placing it the a corner of a photo of the vehicle itself, or within the headline portion of a divided layout",
-    "asReminder": "Nameplates are always set in all caps"
-  },
-
-  "subheads": {
-    "stayCloseToHeadline": "If working with a divided space to house a Headline, try and keep the Subhead within a stone's throw: this could be directly beneath the Headline in question, or at the bottommost pole aligned with the Headline. This won't always be possible for practical or aesthetic reasons, and if that's the case, just try and keep the Subhead as close as is reasonable within the layout",
-    "placement": {
-      "belowHeadline": "The Subhead is positioned below the headline with a spacing equal to the layout margins. This placement is ideal when other elements occupy the poles of the division",
-      "lowerLeft": "The Subhead is placed in the lower left portion of the layout division",
-      "middleColumn": "The Subhead occupies the middle column of the full-bleed layout. This is acceptable in instances like the example as the Subhead is in close enough proximity to the headline to still feel connected to it"
-    }
-  },
-
-  "dividing": {
-    "overview": "To enhance, focus, and organize, layouts can be split on both horizontal and vertical gridlines that occupy a neutral color separate from the image. This is depicted in the examples at right",
-    "principles": {
-      "divideSpacesEvenly": "In this guide, we mandate always dividing the layout into even spaces, whether that's halving or thirding. Any further divisions within those divided spaces should always be by equal thirds. This keeps the layout organized while preventing layouts from becoming too complex to easily understand",
-      "maxFourQuadrants": "By quadrants, we mean spaces created by divisions. This prevents layouts from becoming too complex",
-      "fullBleed": "You are not required to split a layout if space, content or aesthetic needs otherwise. Full-bleed layouts without a division are suited for simple, declarative moments with strong, short headlines and little-to-no accompanying subheads or body copy. Think a masthead image or a social post",
-      "oneThird": "Like full-bleed, one third divisions rely on a single image to support a headline, and can easier-accommodate other graphic elements in the space created by the split. They should be used when a panoramic image needs room to breathe apart from other graphic elements",
-      "bisected": "A bisected division splits headline space and image space evenly, and is perfect for straightforward messaging that doesn't require many other supporting elements"
-    },
-    "types": {
-      "oneThird": "Like full-bleed, one third divisions rely on a single image to support a headline, and can easier-accommodate other graphic elements in the space created by the split",
-      "bisected": "A bisected division splits headline space and image space evenly, and is perfect for straightforward messaging",
-      "trisected": "Divisions allow for more than one image to support a headline. Trisected divisions are ideal when two images can bookend a headline",
-      "fourQuadrants": "Trisected should encourage you to think about layout in a new way: a headline need not always be text, and in instances like this example headspace can be divided. Think most leaderboard and billboard ads, or any format that is horizontal in nature and narrow",
-      "verticalTwoImage": "This division utilizes two images: stacked vertically, and is generally best when accommodating landscape-centric photography",
-      "horizontalTwoImage": "Also utilizing two images, abutting horizontally is composed to work best in tight layouts where horizontal space greatly outnumbers vertical space - think most leaderboard or banner ads",
-      "threeImage": "In which one vertically divided quadrant is divided to form two equal quadrants"
-    },
-    "guidelines": [
-      "Divide spaces evenly",
-      "A max of four 'quadrants' per layout",
-      "Aim to keep Headlines confined to one divided quadrant"
-    ]
-  },
-
-  "imagerySelection": {
-    "principles": {
-      "minimalistic": "Imagery must be minimalistic, uncluttered, clean, and high-impact",
-      "balance": "Multiple images per layout should feel balanced in scale and color",
-      "clarity": "Maintain balance in scale, clarity, and color relationships"
-    },
-    "characteristics": {
-      "allowed": ["minimalistic", "clean", "balanced scale", "color harmony"],
-      "avoid": ["busy scenes", "competing focal points", "distracting backgrounds"]
-    }
-  },
-
-  "photography": {
-    "overall": {
-      "approach": "We're shifting from an approach that centers on vehicle photography, to a multi-dimensional style that heroes both customer and product equally across the board",
-      "flexibility": "This approach and our new multi-image layout system allows for flexibility, using photos of: Product, Portraiture of people, And People + Product together"
-    },
-    "pillars": {
-      "customerCentric": {
-        "name": "Customer Centric - Not Just Vehicle Centric",
-        "peoplePortrayal": {
-          "descriptors": ["heroic", "confident", "capable", "determined"],
-          "avoid": ["parsley garnish", "overly posed", "stiff", "inauthentic"],
-          "description": "People should appear heroic, confident, capable, determined, and authentic — not staged or posed for decoration"
+        "bodyCopy": {
+          "fontWeight": "Regular",
+          "tracking": "0",
+          "kerning": "Metrics",
+          "leading": "Approximately 130% of font size."
+        },
+        "legalLines": {
+          "fontWeight": "Regular",
+          "tracking": "0",
+          "kerning": "Metrics",
+          "leading": "Approximately 110% of font size (compact)."
+        },
+        "ctas": {
+          "fontWeight": "Bold",
+          "tracking": "0",
+          "kerning": "Metrics"
         }
       },
-      "actionOriented": {
-        "name": "Action-Oriented",
-        "description": "Prefer motion and energy: 9/10 images should feel active, not static",
-        "characteristics": ["motion", "vehicles in action", "dynamic posture"],
-        "avoid": ["static shots", "no energy"]
-      },
-      "highImpact": {
-        "name": "High-Impact Imagery + Embracing Extremes",
-        "extremeFraming": {
-          "description": "Leverage extreme close-ups and wides to create drama and contrast between human and machine",
-          "characteristics": ["extreme close-up", "extreme wide", "juxtaposition"]
+      "typesettingHierarchy": {
+        "largeFormat": {
+          "subheadToHeadlineRatio": "14% - 17% of headline point size"
+        },
+        "mediumFormat": {
+          "subheadToHeadlineRatio": "23% - 28% of headline point size"
+        },
+        "smallFormatMultipleSizes": {
+          "rule": "50% difference in each element point size; avoid more than 3 type sizes in a layout"
         }
-      }
-    },
-    "peopleVehicle": {
-      "description": "Show people and vehicles together in a way that highlights capability, performance, and purpose",
-      "characteristics": ["authentic interaction", "purposeful motion", "connection"]
-    },
-    "product3D": {
-      "description": "Use 3D renders or animations to highlight engineering, functionality, and performance",
-      "characteristics": ["detailed render", "mechanical clarity", "capability showcase"]
-    },
-    "colorStyle": {
-      "description": "Imagery should be bold, rich, crisp, energetic, and high-contrast. Natural palettes 'on their best day.' Boost contrast as needed; only increase saturation where lacking",
-      "allowed": ["bold", "rich", "deep", "natural", "high-contrast", "elevated"],
-      "avoid": ["desaturated", "washed-out", "low-contrast", "overly saturated", "grainy"]
-    }
-  },
-
-  "toneOfVoice": {
-    "brandPurpose": "Ford exists to take the capability that's in every person, and enable it with the things we build",
-    "qualities": {
-      "inspiring": {
-        "description": "No matter how much they've done, people are always capable of more. Our goal is to craft a message that inspires others to get out there and do more"
       },
-      "determined": {
-        "description": "Good things may come to those who wait, but great things come to those who take action. We see each day as an opportunity for bigger and better things, and we intend to seize that opportunity. You can feel this sense of determination in our voice: grit meets gusto"
+      "alignmentGuidance": {
+        "headlines": "Prefer center-align; left-align permitted when multiple supporting elements make center less pleasing.",
+        "subheadsAndBody": "Left-aligned with a right rag (not fully justified).",
+        "nameplates": "Generally left-aligned if broken into two lines; right-alignment permissible to create pleasing rag when needed.",
+        "titleCards": "Aim to be center-aligned."
       },
-      "impassioned": {
-        "description": "When it comes to talking about what we do & why we do it, we're not understated. Or stoic. Or resolute. We're obsessed. This sense of passion is shared with our customers, and that's why our voice should aspire to sound less like a big automotive brand, and more like a human being expressing their passion"
-      }
+      "typeDonts": [
+        "Don't deviate from type settings (tracking/kerning/leading) unless necessary.",
+        "Don't use fonts outside the Ready Set Ford family unless required.",
+        "Don't distort type."
+      ],
+      "cheatsheet": {
+        "headline": "Compressed Black, all-caps",
+        "nameplate": "Bold, all-caps",
+        "subhead/body/legal": "Regular",
+        "cta": "Bold"
+      },
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:7]{index=7}"
     },
-    "avoid": ["aggro", "braggy", "intimidating", "old school"]
-  },
 
-  "taglineModularity": {
-    "overview": "Modularity is one of the strengths of our new tagline. Filling in the blank creates bespoke step-up lines for individual pieces of work",
-    "usage": {
-      "channels": ["T1 media", "T2 video", "organic social", "earned"],
-      "avoidChannels": ["ad hoc phrases outside bank", "every asset", "non-US markets at launch"],
-      "regional": "Modularity of READY SET FORD should only be used in the U.S. at launch, in English"
+    "color": {
+      "pages": [48, 49, 50, 51, 52, 53],
+      "overview": "Simple contemporary palette: Skyview Blue, Off Black, White. Flexible and emotionally resonant.",
+      "palette": {
+        "offBlack": {
+          "hex": "#0F0F0F",
+          "rgb": [15, 15, 15],
+          "cmyk": [100, 61, 32, 96],
+          "pantone": "Pantone Black 6 C"
+        },
+        "white": {
+          "hex": "#FFFFFF",
+          "rgb": [255, 255, 255],
+          "cmyk": [0, 0, 0, 0]
+        },
+        "skyviewBlue": {
+          "hex": "#066FEF",
+          "rgb": [6, 111, 239],
+          "cmyk": [84, 45, 0, 0],
+          "pantone": "2172 C",
+          "notes": "Pantone recommended for print; CMYK calibrated for best match but may require shifts depending on materials/printers."
+        }
+      },
+      "colorCombinationsAndEmotionalRegister": {
+        "skyviewOnWhite": "Workhorse combination — neutral, sturdy, nimble. Highest legibility.",
+        "offBlackOnSkyview": "More emotive/intrepid — strong for adventurous applications.",
+        "skyviewOnOffBlack": "Most intense — sparingly for high-octane precision/thrill moments."
+      },
+      "wcagAndAccessibility": {
+        "headlineLargeText": {
+          "skyviewOnOffBlack": { "contrastRatio": "4.13:1", "note": "Use 18pt or larger to meet WCAG AA Large Text." },
+          "offBlackOnSkyview": { "contrastRatio": "4.13:1", "note": "Use 18pt or larger to meet WCAG AA Large Text." },
+          "skyviewOnWhite": { "contrastRatio": "4.63:1", "note": "Standard workhorse; good for copy-heavy assets." }
+        },
+        "secondaryTextNormal": {
+          "whiteOnOffBlack": { "contrastRatio": "19.16:1" },
+          "whiteOnSkyview": { "contrastRatio": "4.63:1" },
+          "skyviewOnWhite": { "contrastRatio": "4.63:1" }
+        },
+        "exceptions": [
+          "Off Black and white combination acceptable when use of color is prohibited.",
+          "White on Skyview may be used for Headlines in select instances where Off Black on Skyview feels too heavy."
+        ]
+      },
+      "colorDonts": [
+        "Don't use colors outside the Ready Set Ford palette.",
+        "Don't pick a division fill color that clashes with the adjacent photo.",
+        "Don't use color combinations outside suggested unless required.",
+        "Don't fill a Division with more than one color."
+      ],
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:8]{index=8}"
     },
-    "guidelines": {
-      "actionOriented": "Each modular line needs to A: convey a clear action/activity/emotional benefit and B: clearly speak to one of our three mindsets (Thrill/Adventure/Build)",
-      "aspirational": "Avoid generic/flat-footed language. We want modular lines that convey an emotion and have a sense of attitude",
-      "simple": "Keep it short, high-energy, and punchy – embrace double meanings and giving new meaning to familiar phrases",
-      "benefitFocused": "Use the modular line to illustrate the benefit of the feature, not just call out the feature name"
+
+    "layout": {
+      "pages": [54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65],
+      "overview": "Design system aims to make every moment impactful. Key principles: Activated Space, Contrast, Emotional Depth.",
+      "divisionRules": {
+        "principles": [
+          "Divide spaces evenly (halving or thirding). Any further divisions must be equal intervals.",
+          "Max of four 'quadrants' per layout to avoid visual complexity.",
+          "Designer discretion: choose Full Bleed, One Third, Bisected, Trisected or multi-image divisions depending on content."
+        ],
+        "divisionTypes": {
+          "fullBleed": "Single-image layout; group graphic elements around a single image; use for masthead, social post, out-of-home.",
+          "oneThird": "Panoramic image needs breathing room; good for headers and out-of-home.",
+          "bisected": "Split evenly between Headline and image; good for simple executions.",
+          "trisected": "Two images can bookend a Headline; useful for carousels or posters.",
+          "verticalTwoImage": "Two images stacked vertically — good for landscape photography.",
+          "horizontalTwoImage": "Two images abutting horizontally — works when horizontal space exceeds vertical.",
+          "threeImageDivision": "One vertically divided quadrant further split into two equal quadrants."
+        },
+        "imagePlacementNotes": "Quadrants can be swapped or rotated; spacing must remain even."
+      },
+      "margins": {
+        "approach": "Margins are percentage of layout width; flexible to allow scalability.",
+        "examples": "Common range 2% - 10% of layout width; avoid below 1% or above 15%.",
+        "calculatingExample": "If layout width=500px, 5% margin = 25px."
+      },
+      "gutters": {
+        "definition": "Gutters are spacing/padding applied to layouts; equal to width of document margins.",
+        "rules": "Each division should have gutters on all sides to which graphic elements align."
+      },
+      "headlineSettings": {
+        "guidance": [
+          "Headlines should be as big as layout allows (margin-to-margin when possible).",
+          "Succinct headlines preferred: 3-8 words.",
+          "Headlines often extend to margins (top-to-bottom or left-to-right depending on orientation)."
+        ],
+        "breakingHeadlines": {
+          "bestPractices": [
+            "Break headlines evenly to avoid awkward descending shapes.",
+            "Extend headlines to margins to make a solid rhythmic shape.",
+            "Avoid odd shapes or leaving large gaps that draw unwanted visual attention."
+          ]
+        }
+      },
+      "placingElements": {
+        "lockupPlacement": {
+          "stacked": "Stacked lockup best in tight spaces; sized 50-75% layout width when centered.",
+          "horizontal": "Horizontal lockup best in wider landscapes; never less than 65% of a divided layout (accounting for margins).",
+          "imageOverlayNotes": "Lockup may travel to image portion if division is tight — never occlude essential parts of photo."
+        },
+        "nameplates": {
+          "anchorPoles": "Nameplates should be anchored to poles (corners) of a division or document corners in full-bleed.",
+          "proximity": "Keep nameplate reasonably close to the vehicle it describes; set in all caps.",
+          "examples": "Bottom-left of image portion, bottom-left of Headline division, or upper-left of rightmost image portion are valid placements."
+        },
+        "subheads": {
+          "placement": "Stay close to the Headline; avoid wide blocks of copy; break subhead at halfway of division width where possible.",
+          "ruleOfThumb": "For full-bleed, break subhead at 1/3 width for panoramic layouts or 1/2 width for near-square layouts."
+        }
+      },
+      "limitationsAndFlexibility": "Guidelines leave room for designer discretion; deviations permitted but maintain ratio and spirit of system.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:9]{index=9}"
     },
-    "lineBank": {
-      "thrill": [
-        "READY. SET. WHOA",
-        "READY. SET. OUTRUN ORDINARY",
-        "READY. SET. FULL THROTTLE",
-        "READY. SET. MOVE THE NEEDLE",
-        "READY. SET. LEAVE YOUR MARK",
-        "READY. SET. GET YOUR REVS IN",
-        "READY. SET. GET SOME AIR",
-        "READY. SET. WIPE THAT SMILE ON YOUR FACE",
-        "READY. SET. HUG EVERY CORNER"
+
+    "graphicElements": {
+      "pages": [73, 74, 75],
+      "contentSummary": "Graphic Elements section covers poles, divisions, visual devices, and best practices for using color and image with graphic elements. (Extractable examples and illustrations in PDF.)",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:10]{index=10}"
+    },
+
+    "photography": {
+      "pages": [85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106],
+      "overview": "Shift from vehicle-centric imagery to multi-dimensional photography that heroes both customer and product. Photography is storytelling to unlock inspiration.",
+      "pillars": {
+        "customerCentric": "Not just vehicle-centric; portray people and product equally.",
+        "actionOriented": "Images should convey motion, capability and real-world use.",
+        "highImpact": "Embrace extremes when appropriate while ensuring product recognition; avoid over/under-saturation and scenes that obscure product identity."
+      },
+      "imageSelectionGuidance": {
+        "fullBleedSelection": "Pick assets with natural space for copy and branding; avoid occluding vehicle badging.",
+        "fullBleedDonts": [
+          "Avoid placements forcing graphic elements to occlude the vehicle.",
+          "Avoid unidentifiable portraits of people without a vehicle.",
+          "Avoid ultra closeups or ultra wide shots for full-bleed placements."
+        ]
+      },
+      "colorInFilmPhotographyDonts": [
+        "Avoid desaturated, washed-out tones.",
+        "Avoid overly saturated/unrealistic hues.",
+        "Avoid scenes with low contrast or anything that feels dusty, vintage or overly grainy."
       ],
-      "adventure": [
-        "READY. SET. GET IN GEAR",
-        "READY. SET. MUD FOR BREAKFAST",
-        "READY. SET. HEAD FOR THE HILLS",
-        "READY. SET. HYDRATE",
-        "READY. SET. TO THE EDGE AND BACK",
-        "READY. SET. PUT YOURSELF OUT THERE",
-        "READY. SET. COME BACK WITH A STORY"
+      "visualCapabilityChecklist": [
+        "Does imagery help tell a true capability story?",
+        "Does imagery display the vehicle in the most capable light?",
+        "Does it portray drivers as capable without undermining approachability?"
       ],
-      "build": [
-        "READY. SET. UP & AT 'EM",
-        "READY. SET. ROLL UP THOSE SLEEVES",
-        "READY. SET. MOVE MOUNTAINS",
-        "READY. SET. MASTER ANY TASK",
-        "READY. SET. BUILD THE FUTURE",
-        "READY. SET. BREAK NEW GROUND",
-        "READY. SET. GET THINGS DONE BY THE TON"
+      "legalAndPINotes": "All still imagery is for reference only. Use of images requires legal and PI review/approval; talent/photography fees may apply.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:11]{index=11}"
+    },
+
+    "toneOfVoice": {
+      "pages": [107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117],
+      "overview": "Voice intended to inspire capability and determination. Shape expresses that Ford enables human capability.",
+      "attributes": ["Inspiring", "Determined", "Impassioned"],
+      "narrative": [
+        "Capability is not about torque or technology — it's a feeling.",
+        "We exist to take the capability in every person and enable it with the things we build.",
+        "The tone should avoid encouraging reckless behavior or appearing brash; go high and speak with leadership tone."
       ],
-      "capability": [
-        "READY. SET. POWER THROUGH IT",
-        "READY. SET. FREE THOSE HANDS UP",
-        "READY. SET. GO OFF-GRID",
-        "READY. SET. PUT YOUR BACKUP INTO IT",
-        "READY. SET. BRING THE SERVICE CENTER TO YOU",
-        "READY. SET. HONE YOUR THRILLS",
-        "READY. SET. LAY IT ALL ON THE LINE"
+      "examplesAndWarnings": {
+        "warning": "Avoid becoming an intimidating or exclusionary brand — Ford remains democratic and inclusive.",
+        "sampleLines": [
+          "Dominate the outdoors with the new Ford Bronco.",
+          "It’s you versus the world. Prove them wrong.",
+          "Laugh in the face of speed limits."
+        ],
+        "note": "Some sample lines are intentionally provocative but still require legal review."
+      },
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:12]{index=12}"
+    },
+
+    "taglineModularity": {
+      "pages": [118, 119, 120, 121, 122, 123, 124, 125],
+      "overview": "READY. SET. ____ is a modular tagline system; the modular blank should be action-oriented and convey benefit vs feature. Use judiciously at launch and prioritize the approved line bank.",
+      "whenToUse": {
+        "channelGuidance": "At launch, limit modularity to high-visibility T1 media, T2 video, organic social, earned, CRM, and dot com.",
+        "regionalGuidance": "Use in U.S. at launch in English; translations and regional use require review. Canada, UK, Australia may be considered on case-by-case basis."
+      },
+      "writingGuidance": {
+        "actionOrientedSpecific": "Clear action/activity or emotional benefit enabled by vehicle capability.",
+        "aspirationalInspirational": "Avoid generic phrasing; convey emotion and attitude.",
+        "simpleMemorable": "Short, high-energy, punchy. Embrace double meanings.",
+        "benefitNotFeature": "Use the modular line to call out benefits, not product names or business unit names."
+      },
+      "preApprovedLineBankForLaunch": [
+        { "line": "Ready. Set. Master Any Task.", "lifestyle": "Build" },
+        { "line": "Ready. Set. Power Through It.", "lifestyle": "Build" },
+        { "line": "Ready. Set. Maximize Uptime.", "lifestyle": "Build" },
+        { "line": "Ready. Set. Get In Gear.", "lifestyle": "Adventure" },
+        { "line": "Ready. Set. Roam Free.", "lifestyle": "Adventure" },
+        { "line": "Ready. Set. Head For The Hills.", "lifestyle": "Adventure" },
+        { "line": "Ready. Set. Get Your Revs In.", "lifestyle": "Thrill" },
+        { "line": "Ready. Set. Full Throttle.", "lifestyle": "Thrill" },
+        { "line": "Ready. Set. Hit The Dirt.", "lifestyle": "Thrill" },
+        { "line": "Ready. Set. Outrun Ordinary.", "lifestyle": "Thrill" }
       ],
-      "community": [
-        "READY. SET. BUILD EACH OTHER UP",
-        "READY. SET. RUN AT THE FIRE",
-        "READY. SET. FEED THE WORLD",
-        "READY. SET. LEND A HAND",
-        "READY. SET. MAKE AN IMPACT"
-      ]
+      "modularityDonts": [
+        "Don't write modular lines at launch that are not pulled from approved line bank without legal review.",
+        "Don't use product names, business unit names, promotional or transactional language in modular line.",
+        "Don't write long rambling modular tags — keep it short."
+      ],
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:13]{index=13}"
     }
   },
 
-  "animation": {
-    "style": {
-      "description": "Animations should feel clean, elevated, nimble, energetic, confident, and smooth — never hectic or disorienting",
-      "avoid": ["sloppy motion", "too fast", "overly busy"]
+  "pagesIndex": [
+    {
+      "pageNumber": 1,
+      "contentSummary": "Title pages and confidentiality notices repeated.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:14]{index=14}"
+    },
+    {
+      "pageNumber": 2,
+      "contentSummary": "Legal notes: claims and lines are for inspiration; contingent on legal review; playbook is confidential.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:15]{index=15}"
+    },
+    {
+      "pageNumber": 3,
+      "contentSummary": "Intro messaging: 'In the following pages, we'll bring Ready Set Ford to life...'",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:16]{index=16}"
+    },
+    {
+      "pageNumber": 4,
+      "contentSummary": "Table of Contents (Introduction, Lockups, Type, Color, Layout, Graphic Elements, Photography, Tone of Voice, Tagline Modularity).",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:17]{index=17}"
+    },
+    {
+      "pageNumber": 5,
+      "contentSummary": "Introduction long form (see sections.introduction).",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:18]{index=18}"
+    },
+    {
+      "pageNumberRange": "31-37",
+      "contentSummary": "Lockups full rules & don'ts (horizontal/vertical), placement on photography, examples.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:19]{index=19}"
+    },
+    {
+      "pageNumberRange": "38-47",
+      "contentSummary": "Typography pages: American Grotesk overview, weights, typesetting rules, hierarchy, alignment, cheat sheet, don'ts.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:20]{index=20}"
+    },
+    {
+      "pageNumberRange": "48-53",
+      "contentSummary": "Color: palette with hex/RGB/CMYK/Pantone, color combos, WCAG guidance, exceptions, don'ts.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:21]{index=21}"
+    },
+    {
+      "pageNumberRange": "54-73",
+      "contentSummary": "Layout: dividing layouts, margin/gutters, headline sizing/placement, lockup/nameplate/subhead placement, breaking headlines rules.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:22]{index=22}"
+    },
+    {
+      "pageNumberRange": "73-84",
+      "contentSummary": "Graphic Elements (poles, divisions, visual devices).",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:23]{index=23}"
+    },
+    {
+      "pageNumberRange": "85-106",
+      "contentSummary": "Photography: approach, pillars, selection guidance, dos & don'ts, color-in-film guidance, legal notes.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:24]{index=24}"
+    },
+    {
+      "pageNumberRange": "107-117",
+      "contentSummary": "Tone of voice: inspiring/determined/impassioned, POV: \"YOU'RE MORE CAPABLE THAN YOU THINK\", example lines and attitude guidance.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:25]{index=25}"
+    },
+    {
+      "pageNumberRange": "118-125",
+      "contentSummary": "Tagline Modularity: when to use, how to write lines, pre-approved line bank and DON’Ts.",
+      "source": "file",
+      "file_citation": ":contentReference[oaicite:26]{index=26}"
     }
+  ],
+
+  "legalNotice": {
+    "text": "The information, claims, all RSF step up lines (e.g., Ready. Set. Get Your Revs In) and content contained in this Playbook are for inspiration purposes only. Use of any information, claims, lines or content is contingent upon additional legal review and approval.",
+    "source": "file",
+    "file_citation": ":contentReference[oaicite:27]{index=27}"
   },
 
-  "layoutDonts": [
-    "Don't let elements float in space - unless those elements are titles, endcards, or something similar",
-    "Don't divide spaces in ways that aren't those illustrated within this guide",
-    "Don't divide spaces in ways that aren't at 90° angles",
-    "Don't divide the lockup into more than 4 quadrants",
-    "Don't split layouts in a way that doesn't make the best use of space",
-    "Don't clutter a layout. Get rid of everything that doesn't need to be there"
+  "footnotes": [
+    {
+      "id": "file",
+      "note": "This JSON was generated from the PDF extracting headings, lists, tables, and body copy where possible. Refer back to the PDF for all original layout examples and imagery.",
+      "file_citation": ":contentReference[oaicite:28]{index=28}"
+    }
   ]
 }

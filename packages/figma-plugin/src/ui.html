@@ -89,7 +89,7 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      background: white;
+      background: black;
       overflow: hidden;
     }
 
@@ -261,107 +261,6 @@
     .hidden {
       display: none !important;
     }
-
-    /* Compliance Report Sections */
-    .compliance-score {
-      background: #E8F4FD;
-      border-left: 4px solid #066FEF;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 16px;
-      color: #066FEF;
-    }
-
-    .compliance-section {
-      margin: 12px 0;
-      padding: 12px;
-      border-radius: 6px;
-      border-left: 4px solid;
-    }
-
-    .compliance-section.compliant {
-      background: #E8F5E9;
-      border-left-color: #4CAF50;
-    }
-
-    .compliance-section.warnings {
-      background: #FFF9E6;
-      border-left-color: #FFC107;
-    }
-
-    .compliance-section.critical {
-      background: #FFEBEE;
-      border-left-color: #F44336;
-    }
-
-    .compliance-section.suggestions {
-      background: #F3E5F5;
-      border-left-color: #9C27B0;
-    }
-
-    .compliance-section-title {
-      font-weight: 700;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .compliance-section.compliant .compliance-section-title {
-      color: #2E7D32;
-    }
-
-    .compliance-section.warnings .compliance-section-title {
-      color: #F57C00;
-    }
-
-    .compliance-section.critical .compliance-section-title {
-      color: #C62828;
-    }
-
-    .compliance-section.suggestions .compliance-section-title {
-      color: #6A1B9A;
-    }
-
-    .compliance-section ul {
-      margin: 0;
-      padding-left: 20px;
-      list-style: none;
-    }
-
-    .compliance-section ul li {
-      margin: 6px 0;
-      line-height: 1.5;
-      position: relative;
-    }
-
-    .compliance-section ul li:before {
-      content: "•";
-      position: absolute;
-      left: -15px;
-      font-weight: bold;
-    }
-
-    .compliance-section.compliant ul li:before {
-      color: #4CAF50;
-    }
-
-    .compliance-section.warnings ul li:before {
-      color: #FFC107;
-    }
-
-    .compliance-section.critical ul li:before {
-      color: #F44336;
-    }
-
-    .compliance-section.suggestions ul li:before {
-      color: #9C27B0;
-    }
   </style>
 </head>
 <body>
@@ -370,12 +269,8 @@
   </div>
 
   <div class="settings">
-    <label for="api-key">Google Gemini API Key</label>
-    <input type="password" id="api-key" placeholder="AIzaSy..." autocomplete="off">
-
-    <label for="proxy-url" style="margin-top: 12px;">Proxy Server URL</label>
-    <input type="text" id="proxy-url" placeholder="https://figma-visual-brain-proxy.onrender.com" autocomplete="off">
-
+    <label for="api-key">Claude API Key (Anthropic)</label>
+    <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off">
     <div class="settings-toggle" id="toggle-settings">Hide</div>
   </div>
 
@@ -425,15 +320,6 @@
     let currentSelectionData = null;
     let currentImage = null;
     let apiKey = '';
-    let proxyUrl = 'https://figma-visual-brain-proxy.onrender.com';
-
-    // Initialize proxy URL input
-    document.getElementById('proxy-url').value = proxyUrl;
-    document.getElementById('proxy-url').addEventListener('change', (e) => {
-      proxyUrl = e.target.value.trim();
-      // Save to Figma clientStorage via plugin code
-      parent.postMessage({ pluginMessage: { type: 'save-proxy-url', proxyUrl: proxyUrl } }, '*');
-    });
 
     // Initialize API key input handler
     document.getElementById('api-key').addEventListener('change', (e) => {
@@ -463,11 +349,6 @@
         document.getElementById('api-key').value = apiKey;
       }
 
-      if (msg.type === 'proxy-url-loaded') {
-        proxyUrl = msg.proxyUrl;
-        document.getElementById('proxy-url').value = proxyUrl;
-      }
-
       if (msg.type === 'design-data-extracted') {
         currentSelectionData = msg.data;
         updateSelectionInfo();
@@ -495,7 +376,7 @@
 
       if (!message) return;
       if (!apiKey) {
-        addMessage('error', 'Please enter your Gemini API key in the settings above');
+        addMessage('error', 'Please enter your Claude API key in the settings above');
         return;
       }
 
@@ -513,15 +394,9 @@
 
       try {
         const response = await analyzeWithAI(message);
-        console.log('AI Response:', response);
         removeMessage(loadingId);
-        if (response && response.trim()) {
-          addMessage('assistant', response);
-        } else {
-          addMessage('error', 'Received empty response from AI');
-        }
+        addMessage('assistant', response);
       } catch (error) {
-        console.error('AI Error:', error);
         removeMessage(loadingId);
         addMessage('error', `Error: ${error.message}`);
       }
@@ -529,7 +404,7 @@
 
     async function quickAction(action) {
       if (!apiKey) {
-        addMessage('error', 'Please enter your Gemini API key');
+        addMessage('error', 'Please enter your Claude API key');
         return;
       }
 
@@ -555,7 +430,7 @@
       }
 
       document.getElementById('user-input').value = prompt;
-      await sendMessage();
+      sendMessage();
     }
 
     async function analyzeWithAI(userMessage) {
@@ -567,7 +442,7 @@
         }
       ];
 
-      // Add image if available
+      // Add image if available (Claude format)
       if (currentImage && !currentImage.error) {
         // Extract base64 data (remove data:image/png;base64, prefix)
         const base64Data = currentImage.base64.split(',')[1];
@@ -581,7 +456,7 @@
         });
       }
 
-      // Build messages array
+      // Build messages array for Claude
       const messages = [
         ...conversationHistory,
         {
@@ -590,93 +465,22 @@
         }
       ];
 
-      const systemPrompt = `You are a brand compliance expert for Ford's "Ready Set Ford" (RSF) campaign. You analyze Figma designs against the RSF brand guidelines and implementation guide.
+      const systemPrompt = `You are a brand compliance expert for Ford's "Ready Set Ford" (RSF) campaign. You analyze Figma designs against the RSF brand guidelines.
 
-RSF Brand Guidelines & Implementation Rules:
+RSF Brand Guidelines Summary:
+- Colors: Skyview Blue (#066FEF), Off Black (#0F0F0F), White (#FFFFFF)
+- Typography: American Grotesk family only (Compressed Black for headlines, Bold for nameplates/CTAs, Regular for body)
+- Spacing: 8px grid system
+- Lockups: Must follow specific sizing rules (65% width for horizontal, 75% for vertical stacked)
+- Photography: Customer-centric, action-oriented, high-impact imagery
+- Tone: Inspiring, determined, impassioned (not aggro or braggy)
 
-COLORS:
-- Primary Palette: Skyview Blue (#066FEF), Off Black (#0F0F0F), White (#FFFFFF)
-- Additional: Ford Blue (#00095B) for logos/end frames, Light Gray (#F0F0F0) for backgrounds
-- Use Skyview sparingly for impact; always balanced with Off Black and White
-- Never mix Ford Blue floods with Skyview text
-- WCAG compliance required for all text pairings
+You have access to the full design data including colors, typography, layout, components, and images. Provide specific, actionable feedback with references to the brand guidelines.
 
-TYPOGRAPHY:
-- Campaign Font: American Grotesk (Compressed Black for headlines, Bold for nameplates/CTAs, Regular for body/subheads)
-- Brand Font: Ford F-1 (for long-term branded components, NOT campaign materials)
-- Headlines: ALL CAPS, max 8 words, 80% leading, center aligned (preferred), no punctuation
-- Subheads: Regular/Bold, 110% leading, Upper/Lower case, left aligned
-- Body Copy: Regular, 130% leading, left aligned
-- Nameplates: Bold, ALL CAPS, 110% leading, left aligned
-- DO NOT convert entire templates to American Grotesk - use for campaign-specific placements only
+Be conversational but professional. Give a compliance score out of 100 when doing full analyses.`;
 
-SPACING & LAYOUT:
-- 8px grid system for all spacing, padding, and margins
-- Big Words: maximize headline width/height
-- Even Divided Spaces: max 4 quadrants
-- Tight Margins: 2%–10%; gutters = margins
-- Stick to the Poles: align elements to corners
-
-BRAND ASSETS & LOCKUPS:
-- Rule of One: Single-frame assets may ONLY have ONE trademark or lockup
-- Rule of Two: Multi-frame assets may have MAX two brand assets (RSF lockup + Ford Oval)
-- Ford Oval required in multi-frame assets when RSF lockup used
-- Ford Oval NOT required in single-frame static RSF assets
-- RSF lockup sizing: 65% width for horizontal, 75% for vertical stacked
-
-PHOTOGRAPHY:
-- Customer-centric, action-oriented, high-impact imagery
-- Vehicles and people equally heroed
-- Extreme close-ups and wides for drama and contrast
-
-TONE OF VOICE:
-- Empowers human capability: inspiring, determined, impassioned
-- NOT aggro, braggy, or intimidating
-- Examples: "Doers Gonna Do", "Difficult is Worth Doing"
-
-RSF ADOPTION REQUIREMENTS:
-- Must be external-facing
-- Must align to RSF strategy ("You're more capable than you think")
-- Must deliver ALL elements: TOV + imagery + design + tagline
-- RSF is all-in or not at all - partial adoption dilutes impact
-- Internal materials never use RSF
-
-IMPORTANT ANALYSIS GUIDELINES:
-- Be concise and actionable - focus on what matters most
-- DO NOT include node IDs, component IDs, or technical Figma identifiers (e.g., I33:13019;868:20589)
-- Group similar issues together instead of listing each occurrence separately
-- Use plain language that designers understand
-- Limit each section to 3-5 key points maximum
-- Avoid repetition across sections
-
-Format your response using this structure for analysis requests:
-
-[SCORE: X/100]
-Brief overall assessment
-
-[COMPLIANT]
-* Key element that's done well
-* Another compliant element
-* One more positive finding
-
-[WARNINGS]
-* Minor issue to address
-* Another warning
-* One more if critical
-
-[CRITICAL]
-* Serious violation requiring immediate attention
-* Another critical issue if present
-
-[SUGGESTIONS]
-* Actionable fix for the most important issues
-* Another practical recommendation
-* One more helpful tip
-
-For conversational questions (not analyses), respond naturally without this structure.`;
-
-      // Make API call through proxy server (to bypass CORS)
-      const response = await fetch(`${proxyUrl}/api/claude`, {
+      // Make API call through local proxy server (to bypass CORS)
+      const response = await fetch('http://localhost:3000/api/claude', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -714,101 +518,6 @@ For conversational questions (not analyses), respond naturally without this stru
       return assistantMessage;
     }
 
-    function formatComplianceReport(content) {
-      // Safety check
-      if (!content || typeof content !== 'string') {
-        console.error('Invalid content:', content);
-        return 'Error: No response received';
-      }
-
-      // Check if this is a structured compliance report
-      if (!content.includes('[COMPLIANT]') && !content.includes('[WARNINGS]') && !content.includes('[CRITICAL]')) {
-        return content; // Return unformatted if not a compliance report
-      }
-
-      let formatted = '';
-
-      // Extract and format score
-      const scoreMatch = content.match(/\[SCORE:\s*(\d+)\/100\]/);
-      if (scoreMatch) {
-        formatted += `<div class="compliance-score">📊 Compliance Score: ${scoreMatch[1]}/100</div>`;
-      }
-
-      // Extract and format COMPLIANT section
-      const compliantMatch = content.match(/\[COMPLIANT\]([\s\S]*?)(?=\[WARNINGS\]|\[CRITICAL\]|\[SUGGESTIONS\]|$)/);
-      if (compliantMatch) {
-        const items = compliantMatch[1].trim().split('\n').filter(line => {
-          const trimmed = line.trim();
-          return trimmed.startsWith('•') || trimmed.startsWith('*');
-        });
-        if (items.length > 0) {
-          formatted += '<div class="compliance-section compliant">';
-          formatted += '<div class="compliance-section-title">✓ Compliant Elements</div>';
-          formatted += '<ul>';
-          items.forEach(item => {
-            formatted += `<li>${item.replace(/^[•*]\s*/, '').trim()}</li>`;
-          });
-          formatted += '</ul></div>';
-        }
-      }
-
-      // Extract and format WARNINGS section
-      const warningsMatch = content.match(/\[WARNINGS\]([\s\S]*?)(?=\[COMPLIANT\]|\[CRITICAL\]|\[SUGGESTIONS\]|$)/);
-      if (warningsMatch) {
-        const items = warningsMatch[1].trim().split('\n').filter(line => {
-          const trimmed = line.trim();
-          return trimmed.startsWith('•') || trimmed.startsWith('*');
-        });
-        if (items.length > 0) {
-          formatted += '<div class="compliance-section warnings">';
-          formatted += '<div class="compliance-section-title">⚠ Warnings</div>';
-          formatted += '<ul>';
-          items.forEach(item => {
-            formatted += `<li>${item.replace(/^[•*]\s*/, '').trim()}</li>`;
-          });
-          formatted += '</ul></div>';
-        }
-      }
-
-      // Extract and format CRITICAL section
-      const criticalMatch = content.match(/\[CRITICAL\]([\s\S]*?)(?=\[COMPLIANT\]|\[WARNINGS\]|\[SUGGESTIONS\]|$)/);
-      if (criticalMatch) {
-        const items = criticalMatch[1].trim().split('\n').filter(line => {
-          const trimmed = line.trim();
-          return trimmed.startsWith('•') || trimmed.startsWith('*');
-        });
-        if (items.length > 0) {
-          formatted += '<div class="compliance-section critical">';
-          formatted += '<div class="compliance-section-title">✖ Critical Issues</div>';
-          formatted += '<ul>';
-          items.forEach(item => {
-            formatted += `<li>${item.replace(/^[•*]\s*/, '').trim()}</li>`;
-          });
-          formatted += '</ul></div>';
-        }
-      }
-
-      // Extract and format SUGGESTIONS section
-      const suggestionsMatch = content.match(/\[SUGGESTIONS\]([\s\S]*?)(?=\[COMPLIANT\]|\[WARNINGS\]|\[CRITICAL\]|$)/);
-      if (suggestionsMatch) {
-        const items = suggestionsMatch[1].trim().split('\n').filter(line => {
-          const trimmed = line.trim();
-          return trimmed.startsWith('•') || trimmed.startsWith('*');
-        });
-        if (items.length > 0) {
-          formatted += '<div class="compliance-section suggestions">';
-          formatted += '<div class="compliance-section-title">💡 Suggestions</div>';
-          formatted += '<ul>';
-          items.forEach(item => {
-            formatted += `<li>${item.replace(/^[•*]\s*/, '').trim()}</li>`;
-          });
-          formatted += '</ul></div>';
-        }
-      }
-
-      return formatted || content;
-    }
-
     function addMessage(type, content) {
       const messagesDiv = document.getElementById('messages');
       const messageId = `msg-${Date.now()}`;
@@ -816,13 +525,7 @@ For conversational questions (not analyses), respond naturally without this stru
       const messageEl = document.createElement('div');
       messageEl.className = `message ${type}`;
       messageEl.id = messageId;
-
-      // Format compliance reports for assistant messages
-      if (type === 'assistant') {
-        messageEl.innerHTML = formatComplianceReport(content);
-      } else {
-        messageEl.innerHTML = content;
-      }
+      messageEl.innerHTML = content;
 
       messagesDiv.appendChild(messageEl);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;

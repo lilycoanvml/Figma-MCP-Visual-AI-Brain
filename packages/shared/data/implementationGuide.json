@@ -119,7 +119,7 @@
   },
 
   "brand_assets": {
-    "pages": [14, 20],
+    "pages": [14-20],
     "ford_oval": {
       "rules": [
         "Primary corporate trademark.",
@@ -155,7 +155,7 @@
   },
 
   "color": {
-    "pages": [21, 24],
+    "pages": [21-24],
     "palette": {
       "OffBlack": {"hex":"#0F0F0F","rgb":"15,15,15","cmyk":"100,61,32,96","pantone":"Black 6C"},
       "Skyview": {"hex":"#066FEF","rgb":"6,111,239","cmyk":"84,45,0,0","pantone":"2172C"},
@@ -189,7 +189,7 @@
   },
 
   "typography": {
-    "pages": [25, 27],
+    "pages": [25-27],
     "typefaces": {
       "campaign_font": "American Grotesk",
       "brand_font": "Ford F-1"
@@ -367,7 +367,7 @@
   },
 
   "who_should_use_rsf": {
-    "pages": [44, 45],
+    "pages":[44-45],
     "philosophy": "RSF is all-in or not at all — partial adoption dilutes impact.",
     "requirements": [
       "External facing.",
@@ -465,4 +465,3 @@
     }
   }
 }
-
